@@ -1,9 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Home extends CI_Controller {
-
-	public function index()
+	function __construct(){
+		parent::__construct();
+	}
+	
+	function index()
 	{
+		$title['title'] = 'Dashboard';
+		$this->load->view('headers', $title);
 		$this->load->view('home');
 	}
 }

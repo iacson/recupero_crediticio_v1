@@ -7,6 +7,8 @@ class Performance extends CI_Controller {
 	
 	function index()
 	{
+		$title['title'] = 'Performance';
+		$this->load->view('headers', $title);
 		$this->load->view('performance');
 	}
 }
