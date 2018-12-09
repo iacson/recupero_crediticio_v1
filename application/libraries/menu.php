@@ -2,14 +2,19 @@
 
 	class Menu{
 		private $arr_menu;
-
+		
 		public function __construct($arr){
-			$this->arr_menu = $arr;
+			$this->arr_menu = $arr['menu'];
+			$this->arr_title = $arr['title'];
 		}
 		public function construirMenu(){
 			$ret_menu = '<ul class="sidebar-menu" data-widget="tree"><li class="header">Menu</li>';
 			foreach($this->arr_menu as $option){
-				$ret_menu .= '<li><a href="index.html"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
+				if($option == $this->arr_title){
+					$ret_menu .= '<li class="active"><a href="index.php/'.$option.'"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
+				} else {
+					$ret_menu .= '<li><a href="index.php/'.$option.'"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
+				}
 			}
 			
 			$ret_menu .= '
