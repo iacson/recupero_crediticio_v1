@@ -23,5 +23,7 @@ class Dashboard extends CI_Controller {
 		foreach($datos as $kpi){
 			echo $kpi['user'];
 		}
-	}	
+	}
 }
+
+?>
