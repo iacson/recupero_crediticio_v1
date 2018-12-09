@@ -1,3 +1,72 @@
-CREATE TABLE `rc`.`KPI` ( `id` INT NOT NULL AUTO_INCREMENT , `KPI` VARCHAR(20) NOT NULL , `TYPE` VARCHAR(10) NOT NULL , `VALUE` VARCHAR(10) NOT NULL , `DATE` DATE NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+DROP TABLE `KPI`
 
-INSERT INTO `kpi` (`id`, `KPI`, `TYPE`, `VALUE`, `DATE`) VALUES (NULL, 'TOTAL_LLAMADAS', 'INT', '179', '2018-12-09');
+CREATE TABLE `KPI` (
+  `id` int(11) NOT NULL,
+  `KPI` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `TYPE` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `VALUE` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `NAME` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `DATE` date NOT NULL,
+  `HABILITADO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `KPI`
+--
+
+INSERT INTO `KPI` (`id`, `KPI`, `TYPE`, `VALUE`, `NAME`, `DATE`, `HABILITADO`) VALUES
+(1, 'TOTAL_LLAMADAS', 'INT', '179', 'Total Llamadas', '2018-12-09', 0),
+(2, 'Q_MINIMO', 'INT', '118', 'Mínimo', '2018-12-09', 0),
+(3, 'PERC_LLAMADAS', 'DEC', '152', 'Porcentaje llamadas', '2018-12-09', 0),
+(4, 'Q_CUENTAS', 'INT', '134', 'Cantidad Cuentas', '2018-12-09', 0),
+(5, 'Q_MIN_CUENTAS', 'INT', '79', 'Cantidad Mínima Cuen', '2018-12-09', 0),
+(6, 'Q_GESTIONES', 'INT', '318', 'Cantidad Gestiones', '2018-12-09', 0),
+(7, 'TOTAL_LLAMADAS', 'INT', '179', 'Total Llamadas', '2018-12-09', 0),
+(8, 'Q_MINIMO', 'INT', '118', 'Mínimo', '2018-12-09', 0),
+(9, 'PERC_LLAMADAS', 'DEC', '152', 'Porcentaje llamadas', '2018-12-09', 0),
+(10, 'Q_CUENTAS', 'INT', '134', 'Cantidad Cuentas', '2018-12-09', 0),
+(11, 'Q_MIN_CUENTAS', 'INT', '79', 'Cantidad Mínima Cuen', '2018-12-09', 0),
+(12, 'Q_GESTIONES', 'INT', '318', 'Cantidad Gestiones', '2018-12-09', 0),
+(13, 'TOTAL_LLAMADAS', 'INT', '179', 'Total Llamadas', '2018-12-09', 0),
+(14, 'Q_MINIMO', 'INT', '118', 'Mínimo', '2018-12-09', 0),
+(15, 'PERC_LLAMADAS', 'DEC', '152', 'Porcentaje llamadas', '2018-12-09', 0),
+(16, 'Q_CUENTAS', 'INT', '134', 'Cantidad Cuentas', '2018-12-09', 0),
+(17, 'Q_MIN_CUENTAS', 'INT', '79', 'Cantidad Mínima Cuen', '2018-12-09', 0),
+(18, 'Q_GESTIONES', 'INT', '318', 'Cantidad Gestiones', '2018-12-09', 0),
+(19, 'CT_TIT', 'INT', '1', 'Cuenta Titular', '2018-12-09', 0),
+(20, 'CT_FAM', 'INT', '17', 'Cuenta Familiar', '2018-12-09', 0),
+(21, 'CT_TER', 'INT', '9', 'Cuenta Terceros', '2018-12-09', 0),
+(22, 'COMP', 'INT', '1', 'Comprometido', '2018-12-09', 0),
+(23, 'RECUP', 'INT', '0', 'Recuperado', '2018-12-09', 0),
+(24, 'QN_REPET', 'DEC', '1,01', 'Cantidad Repet', '2018-12-09', 0),
+(25, 'QN_RESP', 'INT', '101', 'Cantidad Resp', '2018-12-09', 0),
+(26, 'OCUP', 'INT', '18', 'Ocupado', '2018-12-09', 0),
+(27, 'IMP_CONT', 'INT', '48', 'Impo Cont', '2018-12-09', 0),
+(28, 'POP_UP', 'INT', '2', 'Pop Up', '2018-12-09', 0),
+(29, 'Q_SALIENTES', 'INT', '175', 'Cantidad Salientes', '2018-12-09', 0),
+(30, 'Q_ENTRANTES', 'INT', '2', 'Cantidad Entrantes', '2018-12-09', 0);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `KPI`
+--
+ALTER TABLE `KPI`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `KPI`
+--
+ALTER TABLE `KPI`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
