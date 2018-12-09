@@ -10,8 +10,9 @@ function printDashboardKPI(url){
 				var vKpi = data.message[i].KPI;
 				var vName = data.message[i].NAME;
 				var vValue = data.message[i].VALUE;
+				var vIcon = data.message[i].ICON;
 				
-				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="'+vKpi+'" class="inner"><h3>'+vValue+'</h3><p>'+vName+'</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="'+vKpi+'" class="inner"><h3>'+vValue+'</h3><p>'+vName+'</p></div><div class="icon"><i class="ion '+vIcon+'"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
 			}
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
