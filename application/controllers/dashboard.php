@@ -19,7 +19,7 @@ class Dashboard extends CI_Controller {
 	
 	public function getKPI()
 	{
-		$data = $this->Crud_model->getDataResultById('kpi', 'HABILITADO', 1);
+		$data = $this->Crud_model->getOrderDataResultById('kpi', 'HABILITADO', 1, 'ORDEN');
 		if(count($data) > 0)
 		{
 			$response = array(

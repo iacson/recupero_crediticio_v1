@@ -19,6 +19,14 @@ class Crud_model extends CI_Model {
 		return $query;
 	}
 
+	function getOrderDataResultById($table, $field, $id, $order)
+	{
+		$this->db->order_by($order, 'asc');
+		$this->db->where($field, $id);
+		$query = $this->db->get($table)->result_array();
+		return $query;
+	}
+	
 	function getDataById($table, $field, $id)
 	{
 		$this->db->where($field, $id);
