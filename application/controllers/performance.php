@@ -7,8 +7,11 @@ class Performance extends CI_Controller {
 	
 	function index()
 	{
-		$title['title'] = 'Performance';
-		$this->load->view('headers', $title);
-		$this->load->view('performance');
+		$menu['title'] = 'Performance';
+		$menu['menu'] = array('Dashboard', 'Performance');
+		$this->load->library('menu', $menu);
+		$data['menu'] = $this->menu->construirMenu();
+		$this->load->view('headers', $menu);
+		$this->load->view('performance', $data);
 	}
 }

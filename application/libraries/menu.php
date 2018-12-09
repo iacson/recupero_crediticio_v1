@@ -11,23 +11,23 @@
 			$ret_menu = '<ul class="sidebar-menu" data-widget="tree"><li class="header">Menu</li>';
 			foreach($this->arr_menu as $option){
 				if($option == $this->arr_title){
-					$ret_menu .= '<li class="active"><a href="index.php/'.$option.'"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
+					$ret_menu .= '<li class="active"><a href="'.$option.'"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
 				} else {
-					$ret_menu .= '<li><a href="index.php/'.$option.'"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
+					$ret_menu .= '<li><a href="'.$option.'"><i class="fa fa-book"></i> <span>'.$option.'</span></a></li></li>';
 				}
 			}
 			
 			$ret_menu .= '
 			<li class="treeview">
-          <a href="#">
+          <a href="Config">
             <i class="fa fa-dashboard"></i> <span>Configuración</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Other</a></li>
+            <li><a href="Users"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+            <li><a href="Others"><i class="fa fa-circle-o"></i> Other</a></li>
           </ul>
         </li>
 			';
