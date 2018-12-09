@@ -6,20 +6,18 @@ function printDashboardKPI(url){
 		cache: false,
 		async: true,
 		success: function(data){
-			$("#DASHBOARD_KPI").html(data);
+			for(let i=0; i<data.message.length; i++){
+				var vKpi = data.message[i].KPI;
+				var vName = data.message[i].NAME;
+				var vValue = data.message[i].VALUE;
+				
+				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="'+vKpi+'" class="inner"><h3>'+vValue+'</h3><p>'+vName+'</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+			}
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
-			$.notify(xhr.status+': '+thrownError, {
-				className : "warn",
-				position  : "right bottom"
-			});
+			alert(data);			
 		}
 	});				
-			
-//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
-//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
-//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
-//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
 }
 
 function printFooter(){	
