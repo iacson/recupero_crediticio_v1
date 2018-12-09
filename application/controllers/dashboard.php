@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller {
 	function index()
 	{
 		$menu['title'] = 'Dashboard';
-		$menu['menu'] = array('Dashboard', 'Performance');
+		$menu['menu'] = array('Dashboard|fa-dashboard', 'Performance|fa-th');
 		$this->load->library('menu', $menu);
 		$data['menu'] = $this->menu->construirMenu();
 		$this->load->view('headers', $menu);
