@@ -3,6 +3,7 @@
 class Dashboard extends CI_Controller {
 	function __construct(){
 		parent::__construct();
+		$this->load->model('Crud_model');
 	}
 	
 	function index()
@@ -14,4 +15,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('headers', $menu);
 		$this->load->view('dashboard', $data);
 	}
+	
+	public function getKPI()
+	{
+		$datos = $this->Crud_model->getData('usuarios');	
+		
+		foreach($datos as $kpi){
+			echo $kpi['user'];
+		}
+	}	
 }

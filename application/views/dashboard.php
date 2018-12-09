@@ -317,7 +317,7 @@
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
-            <div class="inner">
+            <div id="KPI_" class="inner">
               <h3>150</h3>
 
               <p>New Orders</p>
