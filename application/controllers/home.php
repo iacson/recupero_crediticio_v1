@@ -8,7 +8,9 @@ class Home extends CI_Controller {
 	function index()
 	{
 		$title['title'] = 'Dashboard';
+		$this->load->library('menu', array('Dashboard', 'Performance'));
+		$data['menu'] = $this->menu->construirMenu();
 		$this->load->view('headers', $title);
-		$this->load->view('home');
+		$this->load->view('home', $data);
 	}
 }
