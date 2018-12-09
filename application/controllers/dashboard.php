@@ -18,12 +18,24 @@ class Dashboard extends CI_Controller {
 	
 	public function getKPI()
 	{
-		$datos = $this->Crud_model->getData('usuarios');	
-		
-		foreach($datos as $kpi){
-			echo $kpi['user'];
+		$data = $this->Crud_model->getDataResultById('kpi', 'HABILITADO', 1);
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
 		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+
+		echo json_encode($response);
+		die;
 	}
 }
-
 ?>

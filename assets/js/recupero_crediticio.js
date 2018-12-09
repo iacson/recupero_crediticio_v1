@@ -1,5 +1,30 @@
-$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a></div></div>');
-$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a></div></div>');
+function printDashboardKPI(url){
+	$.ajax({
+		url: url,
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		success: function(data){
+			$("#DASHBOARD_KPI").html(data);
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			$.notify(xhr.status+': '+thrownError, {
+				className : "warn",
+				position  : "right bottom"
+			});
+		}
+	});				
+			
+//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+//	$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="KPI_" class="inner"><h3>150</h3><p>New Orders</p></div><div class="icon"><i class="ion ion-bag"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+}
+
+function printFooter(){	
+	$("#main-footer").append('<div class="pull-right hidden-xs"><b>Versión </b> 0.1 </div><strong>Copyright &copy; 2018-2019 <a href="https://www.iacson.com">Iacson Sistemas</a>.</strong>');
+}
 
 /*
 <!-- ./col -->

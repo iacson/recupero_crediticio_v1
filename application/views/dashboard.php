@@ -756,12 +756,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+  <footer id="main-footer" class="main-footer">
   </footer>
 
   <!-- Control Sidebar -->
@@ -996,6 +991,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="assets/dist/js/pages/dashboard.js"></script>
 <script src="assets/js/recupero_crediticio.js"></script>
+<script>
+	printFooter();
+</script>
 
 </body>
 </html>
