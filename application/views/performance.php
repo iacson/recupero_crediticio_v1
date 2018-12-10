@@ -208,12 +208,11 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  <!-- <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        Performance
+        <small>Última actualización dd/mm/yyyy xx:xx hs</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -221,26 +220,64 @@
       </ol>
     </section>
 
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div>
+
+            <div class="box-body"  id="PERFORMANCE_TABLE">
+            </div>
+
+			</div>
+		</div>
+	</div>
+	</section>
+  </div>
+ -->
+
+   <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Data Tables
+        <small>advanced tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol>
+    </section>
+
     <!-- Main content -->
-    <section class="content container-fluid">
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body" id="PERFORMANCE_TABLE">
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
 
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
-
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+ 
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="pull-right hidden-xs">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+  <footer id="main-footer" class="main-footer">
   </footer>
 
   <!-- Control Sidebar -->
@@ -331,8 +368,14 @@
 <!-- AdminLTE App -->
 <script src="assets/dist/js/adminlte.min.js"></script>
 
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
+<!-- DataTables -->
+<script src="assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script src="assets/js/recupero_crediticio.js"></script>
+<script>
+	printFooter();
+	printPerformanceTable('<?=base_url();?>Performance/getPerformance');
+</script>
 </body>
 </html>

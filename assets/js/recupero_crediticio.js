@@ -22,6 +22,49 @@ function printDashboardKPI(url){
 	});				
 }
 
+function printPerformanceTable(url){
+	$.ajax({
+		url: url,
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		success: function(data){
+			html = '<table id="performance_t" class="table table-bordered table-hover"><thead><tr><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th></tr></thead><tbody>';
+			
+			for(let i=0; i<data.message.length; i++){
+				
+				var vTit = data.message[i].Tit;
+				var vCt_Fam = data.message[i].Ct_Fam;
+				var vCt_Ter = data.message[i].Ct_Ter;
+				var vComp = data.message[i].Comp;
+				var vRecup = data.message[i].Recup;
+				
+				html += '<tr><td>'+vTit+'</td><td>'+vCt_Fam+'</td><td>'+vCt_Ter+'</td><td>'+vComp+'</td><td>'+vRecup+'</td></tr>';
+
+			}
+			
+			html += '</tbody></table>';
+			
+			$("#PERFORMANCE_TABLE").append(html);
+			
+			$(function () {
+				$('#performance_t').DataTable({
+				  'paging'      : true,
+				  'lengthChange': true,
+				  'searching'   : true,
+				  'ordering'    : true,
+				  'info'        : true,
+				  'autoWidth'   : true
+				})
+			})
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			alert(data);			
+		}
+	});				
+}
+
 function printFooter(){	
 	$("#main-footer").append('<div class="pull-right hidden-xs"><b>Versión </b> 0.1 </div><strong>Copyright &copy; 2018-2019 <a href="https://www.iacson.com">Iacson Sistemas</a>.</strong>');
 }

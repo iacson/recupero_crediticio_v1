@@ -16,4 +16,26 @@ class Performance extends CI_Controller {
 		$this->load->view('headers', $menu);
 		$this->load->view('performance', $data);
 	}
+	
+	public function getPerformance()
+	{
+		$data = $this->Crud_model->getData('performance_detalle');
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+		
+		echo json_encode($response);
+		die;
+	}
 }
