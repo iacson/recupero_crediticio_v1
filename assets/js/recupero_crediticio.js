@@ -30,7 +30,7 @@ function printPerformanceTable(url){
 		cache: false,
 		async: true,
 		success: function(data){
-			html = '<table id="performance_t" class="table table-bordered table-hover"><thead><tr><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th></tr></thead><tbody>';
+			html = '<table id="performance_t" class="table table-bordered table-hover"><thead><tr><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th><th>Campo 1</th></tr></thead><tbody>';
 			
 			for(let i=0; i<data.message.length; i++){
 				
@@ -40,7 +40,7 @@ function printPerformanceTable(url){
 				var vComp = data.message[i].Comp;
 				var vRecup = data.message[i].Recup;
 				
-				html += '<tr><td>'+vTit+'</td><td>'+vCt_Fam+'</td><td>'+vCt_Ter+'</td><td>'+vComp+'</td><td>'+vRecup+'</td></tr>';
+				html += '<tr><td>'+vTit+'</td><td>'+vCt_Fam+'</td><td>'+vCt_Ter+'</td><td>'+vComp+'</td><td>'+vRecup+'</td><td>'+vTit+'</td><td>'+vCt_Fam+'</td><td>'+vCt_Ter+'</td><td>'+vComp+'</td><td>'+vRecup+'</td><td>'+vTit+'</td><td>'+vCt_Fam+'</td><td>'+vCt_Ter+'</td><td>'+vComp+'</td><td>'+vRecup+'</td><td>'+vTit+'</td><td>'+vCt_Fam+'</td><td>'+vCt_Ter+'</td><td>'+vComp+'</td><td>'+vRecup+'</td></tr>';
 
 			}
 			
@@ -55,12 +55,13 @@ function printPerformanceTable(url){
 				  'searching'   : true,
 				  'ordering'    : true,
 				  'info'        : true,
-				  'autoWidth'   : true
+				  'autoWidth'   : true,
+				  'scrollX'	: true
 				})
 			})
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
-			alert(data);			
+//			alert(data);			
 		}
 	});				
 }
