@@ -1,20 +1,14 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <!-- Main Header -->
   <header class="main-header">
 
-    <!-- Logo -->
     <a href="" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"></span>
-      <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"></span>
     </a>
 
-    <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
-      <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Botón Navegador</span>
       </a>
@@ -23,7 +17,7 @@
       </div>
     </nav>
   </header>
-  <!-- Left side column. contains the logo and sidebar -->
+
   <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -32,10 +26,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="assets/img/pp.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>? USUARIO ?</p>
+          <p>Nadia Ramirez</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -60,36 +54,6 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <!-- <div class="content-wrapper">
-    <section class="content-header">
-      <h1>
-        Performance
-        <small>Última actualización dd/mm/yyyy xx:xx hs</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
-    </section>
-
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
-            </div>
-
-            <div class="box-body"  id="PERFORMANCE_TABLE">
-            </div>
-
-			</div>
-		</div>
-	</div>
-	</section>
-  </div>
- -->
 
    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
