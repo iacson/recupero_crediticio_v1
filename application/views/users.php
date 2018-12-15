@@ -75,7 +75,7 @@
 				  <h3 class="box-title">Tabla de Usuarios</h3>
 				</div>
 				<!-- /.box-header -->
-				<div class="box-body">
+				<div class="table-responsive">
 				  <table class="table table-bordered">
 					<tbody>
 					<tr>
@@ -100,13 +100,13 @@
 					  <td>01/01/1990</td>
 					  <td><a href="#" data-toggle="modal" data-target="#modal_user_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td>
 					  <td><a href="#" class="text-danger" data-toggle="modal" data-target="#modal_user_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td>
-					  <td><a href="#" class="text-success"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td>
+					  <td><a href="#" class="text-success" data-toggle="modal" data-target="#modal_user_refresh"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td>
 					</tr>
 				  </tbody></table>
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer clearfix">
-				  <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Agregar Usuario</button>
+				  <button type="submit" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modal_user_add"><i class="fa fa-plus"></i> Agregar Usuario</button>
 				</div>
 			  </div>
         </section>

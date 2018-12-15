@@ -1,10 +1,10 @@
-<div class="modal fade" id="modal_user_delete">
-          <div class="modal-dialog">
+<div class="modal fade" id="modal_user_add">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Eliminar Usuario</h4>
+                <h4 class="modal-title">Agregar usuario</h4>
               </div>
               <div class="modal-body">
                 <p>One fine body&hellip;</p>
@@ -14,7 +14,5 @@
                 <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
-            <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog -->
         </div>

@@ -15,6 +15,10 @@ class Users extends CI_Controller {
 		$data['menu'] = $this->menu->construirMenu();
 		$this->load->view('headers', $menu);
 		$this->load->view('users', $data);
+		$this->load->view('modal/modal_user_delete');
+		$this->load->view('modal/modal_user_edit');
+		$this->load->view('modal/modal_user_refresh');
+		$this->load->view('modal/modal_user_add');
 	}
 }
 ?>
