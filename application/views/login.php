@@ -33,23 +33,23 @@
   <div class="login-box-body style="background-color:#333">
       <img width="200" src="<?=base_url();?>/assets/img/banner_RC.png" alt="Logo Image">
 
-    <p class="login-box-msg"> Iniciar sesión</p>
+    <p class="login-box-msg"></p>
 
     <form action="<?=base_url();?>/assets/index2.html" method="post">
       <div class="form-group has-feedback">
         <input type="User" class="form-control" placeholder="Usuario">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="fa fa-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="Contraseña">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <span class="fa fa-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8 form-check">
       
 
               <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="padding-left: 20px;"> 
-            <label class="form-check-label" style="font-weight: regular;"> Recuérdame </label>
+            <label class="form-check-label" style="color:#fff; 	font-weight: normal;"> Recuérdame </label>
           
         </div>
         <!-- /.col -->
@@ -69,7 +69,7 @@
     </div>
     <!-- /.social-auth-links -->
 
-    <a href="#"> Olvidaste tu contraseña?</a><br>
+    <a href="#" style="color:#fff; 	font-weight: normal;">¿Olvidaste tu contraseña?</a><br>
     <!--<a href="register.html" class="text-center">Registrar un nuevo usuario</a>-->
 
   </div>

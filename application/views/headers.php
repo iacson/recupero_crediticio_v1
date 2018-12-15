@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
-	<link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="assets/dist/css/AdminLTE.css">
 	<link rel="stylesheet" href="assets/dist/css/skins/skin-blue.css">
 
 	<!--[if lt IE 9]>
