@@ -28,24 +28,25 @@
 <body class="hold-transition lockscreen">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
-  <div class="lockscreen-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <div class="lockscreen-logo">
+    <img src="<?=base_url();?>/assets/img/lockscreen.png" alt="Logo Image"> 
+    <!--<a href="<?=base_url();?>/assets/index2.html"><b>RECUPERO</b>CREDITICIO</a>-->
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">John Doe</div>
+  <div class="lockscreen-name">Nadia Ramirez</div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
     <!-- lockscreen image -->
     <div class="lockscreen-image">
-      <img src="<?=base_url();?>/assets/dist/img/pp.jpg" alt="User Image">
+      <img src="<?=base_url();?>/assets/img/pp.jpg" alt="User Image">
     </div>
     <!-- /.lockscreen-image -->
 
     <!-- lockscreen credentials (contains the form) -->
     <form class="lockscreen-credentials">
       <div class="input-group">
-        <input type="password" class="form-control" placeholder="password">
+        <input type="password" class="form-control" placeholder="Contraseña">
 
         <div class="input-group-btn">
           <button type="button" class="btn"><i class="fa fa-arrow-right text-muted"></i></button>
@@ -57,21 +58,21 @@
   </div>
   <!-- /.lockscreen-item -->
   <div class="help-block text-center">
-    Enter your password to retrieve your session
+    Ingrese su contraseña para iniciar sesión  
   </div>
   <div class="text-center">
-    <a href="login.html">Or sign in as a different user</a>
+    <a href="login.html"> Igresar con un usuario diferente</a>
   </div>
   <div class="lockscreen-footer text-center">
-    Copyright &copy; 2014-2016 <b><a href="https://adminlte.io" class="text-black">Almsaeed Studio</a></b><br>
-    All rights reserved
+    <!--Copyright &copy; 2018-2019 <b><a href="https://www.iacson.com/" class="text-black">Iacson Sistemas</a></b><br>-->
+    
   </div>
 </div>
 <!-- /.center -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="<?=base_url();?>/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?=base_url();?>/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
