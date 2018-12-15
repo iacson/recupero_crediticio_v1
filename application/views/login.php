@@ -27,11 +27,11 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page" style="background-color:#333;">
+<body class="hold-transition login-page" style="background-color:#3C8DBC;">
 <div class="login-box" >
   <!-- /.login-logo -->
-  <div class="login-box-body style="background-color:#333">
-      <img width="200" src="<?=base_url();?>/assets/img/banner_RC.png" alt="Logo Image">
+  <div class="login-box-body" style="background-color:#4c99c6;">
+          <img width="200" src="<?=base_url();?>/assets/img/banner_RC.png" alt="Logo Image">
 
     <p class="login-box-msg"></p>
 

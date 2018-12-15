@@ -25,15 +25,15 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition lockscreen">
+<body class="hold-transition lockscreen"style="background-color:#3C8DBC">
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
-    <div class="lockscreen-logo">
-    <img src="<?=base_url();?>/assets/img/lockscreen.png" alt="Logo Image"> 
-    <!--<a href="<?=base_url();?>/assets/index2.html"><b>RECUPERO</b>CREDITICIO</a>-->
+   <div class="lockscreen-logo">
+    <img src="<?=base_url();?>/assets/img/banner_RC.png" alt="Logo Image"> 
+    <a href="<?=base_url();?>/assets/index2.html"></a>
   </div>
   <!-- User name -->
-  <div class="lockscreen-name">Nadia Ramirez</div>
+  <div class="lockscreen-name" style="font-size:20px; color:#ddd;">Nadia Ramirez</div>
 
   <!-- START LOCK SCREEN ITEM -->
   <div class="lockscreen-item">
@@ -57,11 +57,11 @@
 
   </div>
   <!-- /.lockscreen-item -->
-  <div class="help-block text-center">
+  <div class="help-block text-center" style="color:#ddd;">
     Ingrese su contraseña para iniciar sesión  
   </div>
   <div class="text-center">
-    <a href="login.html"> Igresar con un usuario diferente</a>
+    <a href="login.html" style="color:#fff;"> Igresar con un usuario diferente</a>
   </div>
   <div class="lockscreen-footer text-center">
     <!--Copyright &copy; 2018-2019 <b><a href="https://www.iacson.com/" class="text-black">Iacson Sistemas</a></b><br>-->
