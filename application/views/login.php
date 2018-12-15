@@ -27,18 +27,17 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <img src="<?=base_url();?>/assets/img/banner_rc.png" alt="Logo Image">
-  </div>
+<body class="hold-transition login-page" style="background-color:#333;">
+<div class="login-box" >
   <!-- /.login-logo -->
-  <div class="login-box-body">
+  <div class="login-box-body style="background-color:#333">
+      <img width="200" src="<?=base_url();?>/assets/img/banner_RC.png" alt="Logo Image">
+
     <p class="login-box-msg"> Iniciar sesión</p>
 
     <form action="<?=base_url();?>/assets/index2.html" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Correo electrónico">
+        <input type="User" class="form-control" placeholder="Usuario">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -46,16 +45,16 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Recuérdame
-            </label>
-          </div>
+        <div class="col-xs-8 form-check">
+      
+
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="padding-left: 20px;"> 
+            <label class="form-check-label" style="font-weight: regular;"> Recuérdame </label>
+          
         </div>
         <!-- /.col -->
         <div class="col-s-4">
-          <button type="submit" class="btn btn-primary"> Iniciar Sesión</button>
+          <button type="submit" class="btn btn-default"> Iniciar Sesión</button>
         </div>
         <!-- /.col -->
       </div>
@@ -82,16 +81,6 @@
 <script src="<?=base_url();?>/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url();?>/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- iCheck -->
-<script src="<?=base_url();?>/assets/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
+
 </body>
 </html>
