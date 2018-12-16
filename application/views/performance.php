@@ -60,8 +60,7 @@
 	<ol class="breadcrumb">
 		<li class="active">Última Actualización: dd/mm/yyyy hh:mm</li>
 	</ol>
-	<button type="submit" class="btn btn-success pull-left" style="margin-top: 8px;"><i class="fa fa-floppy"></i> Descargar XLS</button>
-	<button type="submit" class="btn btn-info pull-left" style="margin-left: 8px; margin-top: 8px;"><i class="fa fa-floppy"></i> Descargar CSV</button>
+	<button type="submit" class="btn btn-success pull-left" style="margin-top: 8px;" onclick="export_performance_xls()"><i class="fa fa-save" style="padding-right: 5px;"></i> Descargar XLS</button>
 	</br>
 	</br>
     </section>
