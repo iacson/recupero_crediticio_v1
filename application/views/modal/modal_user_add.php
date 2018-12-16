@@ -40,21 +40,38 @@
 					  <h3 class="box-title">Datos Profesionales</h3>
 					</div>
 					<div class="box-body">
-
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-at"></i></span>
-							<input type="email" class="form-control" placeholder="Usuario">
-						</div>
-							</br>					
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-							<input type="email" class="form-control" placeholder="correo@recuperocrediticio.com.ar">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-at"></i></span>
+									<input type="email" class="form-control" placeholder="Usuario">
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" class="form-control" placeholder="correo@recuperocrediticio.com.ar">
+								</div>
+							</div>
 						</div>
 							</br>
 
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-desktop"></i></span>
-							<input type="text" class="form-control" placeholder="Cargo">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-desktop"></i></span>
+									<input type="text" class="form-control" placeholder="Cargo">
+								</div>					
+							</div>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-wrench"></i></span>
+										<select class="form-control">
+											<option>Usuario</option>
+											<option>Administrador</option>
+										</select>
+								</div>
+							</div>
 						</div>
 					  </div>
 				</div>

@@ -1,12 +1,14 @@
 <div class="modal fade" id="modal_user_edit">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header alert-info">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title"><i class="fa fa-pencil" style="padding-right: 10px;"></i>Editar usuario</h4>
               </div>
-              <div class="modal-body">
+			  
+			  
+			  <div class="modal-body">
 				<form role="form">
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -41,10 +43,21 @@
 					</div>
 					<div class="box-body">
 
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-at"></i></span>
-							<input type="email" class="form-control" placeholder="Usuario">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-at"></i></span>
+									<input type="email" class="form-control" placeholder="Usuario">
+								</div>
+							</div>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" class="form-control" placeholder="correo@recuperocrediticio.com.ar">
+								</div>
+							</div>
 						</div>
+						
 							</br>					
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
@@ -52,9 +65,22 @@
 						</div>
 							</br>
 
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-desktop"></i></span>
-							<input type="text" class="form-control" placeholder="Cargo">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-desktop"></i></span>
+									<input type="text" class="form-control" placeholder="Cargo">
+								</div>					
+							</div>
+							<div class="col-xs-6">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-wrench"></i></span>
+										<select class="form-control">
+											<option>Usuario</option>
+											<option>Administrador</option>
+										</select>
+								</div>
+							</div>
 						</div>
 					  </div>
 				</div>
