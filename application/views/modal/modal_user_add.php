@@ -6,7 +6,7 @@
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Agregar usuario</h4>
               </div>
-             <div class="modal-body">
+             <div class="modal-body" id="modal_user_add_overlay">
 				<form role="form">
 				<div class="box box-solid">
 					<div class="box-header with-border">
@@ -18,18 +18,18 @@
 							<div class="col-xs-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user"></i></span>
-									<input type="text" class="form-control" placeholder="Nombre">
+									<input id="user_add_name" type="text" class="form-control" placeholder="Nombre">
 								</div>					
 							</div>
 							<div class="col-xs-6">
-									<input type="text" class="form-control" placeholder="Apellido">
+									<input id="user_add_lastname" type="text" class="form-control" placeholder="Apellido">
 							</div>
 						</div>
 						</br>
 						
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
-							<input type="date" class="form-control" placeholder="Fecha nacimiento">
+							<input id="user_add_birthday" type="date" class="form-control" placeholder="Fecha nacimiento">
 						</div> 
 					  </div>
 				</div>
@@ -44,13 +44,13 @@
 							<div class="col-xs-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-at"></i></span>
-									<input type="email" class="form-control" placeholder="Usuario">
+									<input id="user_add_user" type="text" class="form-control" placeholder="Usuario">
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input type="email" class="form-control" placeholder="correo@recuperocrediticio.com.ar">
+									<input id="user_add_email" type="email" class="form-control" placeholder="correo@recuperocrediticio.com.ar">
 								</div>
 							</div>
 						</div>
@@ -60,19 +60,20 @@
 							<div class="col-xs-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-desktop"></i></span>
-									<input type="text" class="form-control" placeholder="Cargo">
+									<input id="user_add_job" type="text" class="form-control" placeholder="Cargo">
 								</div>					
 							</div>
 							<div class="col-xs-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-wrench"></i></span>
-										<select class="form-control">
-											<option>Usuario</option>
-											<option>Administrador</option>
-										</select>
+									<select id="user_add_profile" class="form-control">
+										<option>Usuario</option>
+										<option>Administrador</option>
+									</select>
 								</div>
 							</div>
 						</div>
+						<input type="hidden" id="csrf_rc" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
 					  </div>
 				</div>
 			  </form>				
@@ -80,8 +81,69 @@
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">Guardar cambios</button>
+                <button type="button" class="btn btn-success" onclick="user_add()" id="btn_user_add">Guardar cambios</button>
               </div>
             </div>
           </div>
         </div>
+
+<script>
+function user_add(){
+	$("#modal_user_add_overlay").LoadingOverlay("show");
+
+	var user_add_name = $("#user_add_name").val();
+	var user_add_lastname = $("#user_add_lastname").val();
+	var user_add_birthday = $("#user_add_birthday").val();
+	var user_add_email = $("#user_add_email").val();
+	var user_add_job = $("#user_add_job").val();
+	var user_add_profile = $("#user_add_profile").val();
+	var user_add_user = $("#user_add_user").val();
+	var rc_token = 0;
+
+	$.ajax({
+		url: '<?=base_url()?>Users/user_add',
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			'name':user_add_name,
+			'lastname':user_add_lastname,
+			'birthday':user_add_birthday,
+			'email':user_add_email,
+			'job':user_add_job,
+			'profile':user_add_profile,
+			'user':user_add_user,
+			'csrf_rc' : $('#csrf_rc').val()
+		},
+		cache: false,
+		async: true,
+		success: function(data){
+			$.notify(data.message, {
+				className : data.type,
+				position  : "right bottom"
+			});
+			user_modal_reset();
+			$("#generic_preloader").LoadingOverlay("hide");
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			$.notify(xhr.status+': '+thrownError, {
+				className : "warn",
+				position  : "right bottom"
+			});
+			$("#generic_preloader").LoadingOverlay("hide");
+		}
+	});
+	
+
+	$("#modal_user_add_overlay").LoadingOverlay("hide");
+}
+function user_modal_reset(){
+	$("#user_add_name").val("");
+	$("#user_add_lastname").val("");
+	$("#user_add_birthday").val("");
+	$("#user_add_email").val("");
+	$("#user_add_job").val("");
+	$("#user_add_profile").val("");
+	$("#user_add_user").val("");
+}
+</script>
+		

@@ -26,8 +26,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="Config/Users"><i class="fa fa-user"></i> Usuarios</a></li>
-            <li><a href="Config/Others"><i class="fa fa-rocket"></i> Other</a></li>
+            <li><a href="Users"><i class="fa fa-user"></i> Usuarios</a></li>
+            <li><a href="Others"><i class="fa fa-rocket"></i> Other</a></li>
           </ul>
         </li>
 			';

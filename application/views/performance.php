@@ -50,18 +50,20 @@
   </aside>
 
 
-   <div class="content-wrapper">
+   <div class="content-wrapper" id="overlay">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Performance
         <small>Performance Diario</small>
       </h1>
-
 	<ol class="breadcrumb">
 		<li class="active">Última Actualización: dd/mm/yyyy hh:mm</li>
 	</ol>
-
+	<button type="submit" class="btn btn-success pull-left" style="margin-top: 8px;"><i class="fa fa-floppy"></i> Descargar XLS</button>
+	<button type="submit" class="btn btn-info pull-left" style="margin-left: 8px; margin-top: 8px;"><i class="fa fa-floppy"></i> Descargar CSV</button>
+	</br>
+	</br>
     </section>
 
     <!-- Main content -->
@@ -74,6 +76,26 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body" id="PERFORMANCE_TABLE">
+				<table id="performance_t" class="table table-bordered table-hover">
+					<thead><tr><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th></tr></thead>
+					<tbody>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+					</tbody>
+				</table>
             </div>
             <!-- /.box-body -->
           </div>
@@ -87,36 +109,21 @@
     <!-- /.content -->
   </div>
  
-
-  <!-- Main Footer -->
-  <footer id="main-footer" class="main-footer">
-  </footer>
+ <footer id="main-footer" class="main-footer">
+ </footer>
   
   <aside class="control-sidebar control-sidebar-dark" id="right-aside">
   </aside>
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 3 -->
-<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- AdminLTE App -->
-<script src="assets/dist/js/adminlte.min.js"></script>
-
-<!-- DataTables -->
-<script src="assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
-<script src="assets/js/recupero_crediticio.js"></script>
 <script>
+	$("#overlay").LoadingOverlay("show");
 	printFooter();
-	printPerformanceTable('<?=base_url();?>Performance/getPerformance');
 	printRightAside();
 	printUserNavBar();
+	printPerformanceTable('<?=base_url();?>Performance/getPerformance');
+	$("#overlay").LoadingOverlay("hide");
 </script>
 
 <style>

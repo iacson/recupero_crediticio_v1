@@ -9,6 +9,11 @@ class Dashboard extends CI_Controller {
 	
 	function index()
 	{
+		$data['csrf'] = array(
+			'name' => $this->security->get_csrf_token_name(),
+			'hash' => $this->security->get_csrf_hash()
+		);
+
 		$menu['title'] = 'Dashboard';
 		$menu['menu'] = array('Dashboard|fa-dashboard', 'Performance|fa-th');
 		$this->load->library('menu', $menu);

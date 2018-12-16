@@ -8,7 +8,11 @@ class Lockscreen extends CI_Controller {
 	}
 
 	function index(){
-//		$this->load->view('login', $data);
+		$data['csrf'] = array(
+			'name' => $this->security->get_csrf_token_name(),
+			'hash' => $this->security->get_csrf_hash()
+		);
+
 		$this->load->view('lockscreen');
 	}
 }

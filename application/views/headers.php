@@ -17,5 +17,15 @@
 	<script src="/assets/https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">	
+	<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="assets/js/loadingoverlay.js"></script>
+	<script src="assets/bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="assets/dist/js/adminlte.min.js"></script>
+	<script src="assets/js/recupero_crediticio.js"></script>
+	<script src="assets/js/notify.js"></script>
+	<script src="assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
 </head>

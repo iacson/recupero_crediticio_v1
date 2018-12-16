@@ -301,9 +301,9 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
 */
-$config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
-$config['csrf_cookie_name'] = 'csrf_cookie_name';
+$config['csrf_protection'] = TRUE;
+$config['csrf_token_name'] = 'csrf_rc';
+$config['csrf_cookie_name'] = 'csrf_cookie_rc';
 $config['csrf_expire'] = 7200;
 
 /*
@@ -384,7 +384,6 @@ $config['swf_path'] 	 = 'assets/swf/';
 $config['upload_path'] 	 = 'assets/upload/';
 $config['xml_path'] 	 = 'assets/xml/';
 $config['pdf_path'] 	 = 'assets/pdf/';
-$config['photos_files_path'] = 'C:\xampp\htdocs\DESA\running_v1\uploads';
 
 
 /*
