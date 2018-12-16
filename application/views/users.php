@@ -54,7 +54,7 @@
     <section class="content-header">
       <h1>
         Usuarios
-        <small>Control panel</small>
+        <small>Panel de control</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-user"></i> Config</a></li>
@@ -86,9 +86,7 @@
 					  <th>Correo</th>
 					  <th>Cargo</th>
 					  <th>Fecha</th>
-					  <th style="width: 10px"></th>
-					  <th style="width: 10px"></th>
-					  <th style="width: 10px"></th>
+					  <th style="width: 10px" colspan="3"></th>
 					</tr>
 					<tr>
 					  <td>1.</td>
@@ -98,9 +96,9 @@
 					  <td>nadia.ramirez@recuperocrediticio.com.ar</td>
 					  <td>Business Intelligence</td>
 					  <td>01/01/1990</td>
-					  <td><a href="#" data-toggle="modal" data-target="#modal_user_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td>
-					  <td><a href="#" class="text-danger" data-toggle="modal" data-target="#modal_user_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td>
-					  <td><a href="#" class="text-success" data-toggle="modal" data-target="#modal_user_refresh"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td>
+					  <td><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_user_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td>
+					  <td><a href="#" class="text-orange" data-toggle="modal" data-target="#modal_user_refresh"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td>
+					  <td><a href="#" class="text-red" data-toggle="modal" data-target="#modal_user_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td>
 					</tr>
 				  </tbody></table>
 				</div>

@@ -1,4 +1,5 @@
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
 
  <header class="main-header">
@@ -24,12 +25,10 @@
         </div>
         <div class="pull-left info">
           <p>Nadia Ramirez</p>
-          <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
 
-      <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -48,13 +47,11 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Dashboard
-        <small>Control panel</small>
+        <small>Panel de control</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -63,38 +60,12 @@
     </section>
 
     <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div id="DASHBOARD_KPI" class="row">
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          <div class="nav-tabs-custom">
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-              <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-              <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-            </div>
-          </div>
-          <!-- /.nav-tabs-custom -->
-
-        </section>
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
-
+    <section class="content">	
+	<!-- PRELOADER -->
+		<div class="preloader-wrapper" id="preloader_content"><div class="preloader"><img src="assets/img/preload.gif" alt="Cargando..."></div></div>
+		<div id="DASHBOARD_KPI" class="row">
+		</div>
     </section>
-    <!-- /.content -->
   </div>
 
 
@@ -154,12 +125,8 @@
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
 <script src="assets/bower_components/raphael/raphael.min.js"></script>
-<script src="assets/bower_components/morris.js/morris.min.js"></script>
 <!-- Sparkline -->
 <script src="assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="assets/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -176,14 +143,42 @@
 <!-- AdminLTE App -->
 <script src="assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="assets/dist/js/pages/dashboard.js"></script>
 <script src="assets/js/recupero_crediticio.js"></script>
 <script>
+	$("#preloader_content").show();
 	printFooter();
 	printDashboardKPI('<?=base_url();?>Dashboard/getKPI');
 	printRightAside();
 	printUserNavBar();
+	// $("#preloader_content").hide();	
 </script>
+<style>
+/*----------------------- Preloader -----------------------*/
+
+.preloader-site {
+    overflow: hidden;
+}
+
+.preloader-wrapper {
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+}
+
+.preloader-wrapper .preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 120px;
+}
+</style>
+
 
 </body>
 </html>

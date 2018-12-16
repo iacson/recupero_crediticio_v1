@@ -1,7 +1,7 @@
 <div class="modal fade" id="modal_user_refresh">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header alert-danger">
+			<div class="modal-header alert-warning">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title"><i class="fa fa-refresh" style="padding-right: 10px;"></i>Reiniciar contraseña</h4>
@@ -12,7 +12,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-				<button type="button" class="btn btn-danger">Reiniciar</button>
+				<button type="button" class="btn btn-warning">Reiniciar</button>
 			</div>
 		</div>
 	</div>
