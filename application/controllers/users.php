@@ -91,5 +91,152 @@ class Users extends CI_Controller {
 			die;
 		}
 	}
+	
+	function user_edit()
+	{
+		$is_ajax = $this->input->is_ajax_request();
+		
+		if($is_ajax){
+			
+			$status = TRUE;		
+			
+			$campo1     = $this->input->post('name');
+			$campo2     = $this->input->post('password');
+					
+			$data = array(
+				'name'			=> $campo1,
+				'password'  	=> $campo2			
+			);
+					
+			$response = $this->Crud_model->functionData($data);
+			
+			if(!$response){ $status = FALSE; }
+			if($status)
+			{
+				$response = array(
+					'message' => 'Usuario editado.',
+					'type'    => 'success'
+				);
+			}
+			else
+			{
+				$response = array(
+					'message' => 'Error, verifique los datos.',
+					'type'    => 'warn'
+				);
+			}
+
+			echo json_encode($response);
+			die;
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error de seguridad.',
+				'type'    => 'warn'
+			);
+			
+			echo json_encode($response);
+			die;
+		}
+	}
+	
+	function user_delete()
+	{
+		$is_ajax = $this->input->is_ajax_request();
+		
+		if($is_ajax){
+			
+			$status = TRUE;		
+			
+			$campo1     = $this->input->post('name');
+			$campo2     = $this->input->post('password');
+					
+			$data = array(
+				'name'			=> $campo1,
+				'password'  	=> $campo2			
+			);
+					
+			$response = $this->Crud_model->functionData($data);
+			
+			if(!$response){ $status = FALSE; }
+			if($status)
+			{
+				$response = array(
+					'message' => 'Usuario editado.',
+					'type'    => 'success'
+				);
+			}
+			else
+			{
+				$response = array(
+					'message' => 'Error, verifique los datos.',
+					'type'    => 'warn'
+				);
+			}
+
+			echo json_encode($response);
+			die;
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error de seguridad.',
+				'type'    => 'warn'
+			);
+			
+			echo json_encode($response);
+			die;
+		}
+	}
+	
+	function user_reset_psw()
+	{
+		$is_ajax = $this->input->is_ajax_request();
+		
+		if($is_ajax){
+			
+			$status = TRUE;		
+			
+			$campo1     = $this->input->post('name');
+			$campo2     = $this->input->post('password');
+					
+			$data = array(
+				'name'			=> $campo1,
+				'password'  	=> $campo2			
+			);
+					
+			$response = $this->Crud_model->functionData($data);
+			
+			if(!$response){ $status = FALSE; }
+			if($status)
+			{
+				$response = array(
+					'message' => 'Usuario editado.',
+					'type'    => 'success'
+				);
+			}
+			else
+			{
+				$response = array(
+					'message' => 'Error, verifique los datos.',
+					'type'    => 'warn'
+				);
+			}
+
+			echo json_encode($response);
+			die;
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error de seguridad.',
+				'type'    => 'warn'
+			);
+			
+			echo json_encode($response);
+			die;
+		}
+	}
 }
 ?>
