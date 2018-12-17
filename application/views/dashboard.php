@@ -102,12 +102,42 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <script>
-	$("#overlay").LoadingOverlay("show");
-	printFooter();
-	printDashboardKPI('<?=base_url();?>Dashboard/getKPI');
-	printRightAside();
-	printUserNavBar();
-	$("#overlay").LoadingOverlay("hide");	
+	function printDashboardKPI(url){
+		$.ajax({
+			url: url,
+			type: 'GET',
+			dataType: 'json',
+			cache: false,
+			async: true,
+			success: function(data){
+				for(let i=0; i<data.message.length; i++){
+					var vKpi = data.message[i].KPI;
+					var vName = data.message[i].NAME;
+					var vValue = data.message[i].VALUE;
+					var vIcon = data.message[i].ICON;
+					var vColor = data.message[i].COLOR;
+					
+					$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box '+vColor+'"><div id="'+vKpi+'" class="inner"><h3>'+vValue+'</h3><p>'+vName+'</p></div><div class="icon"><i class="fa '+vIcon+'"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+				}
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				$.notify(xhr.status+': '+thrownError, {
+					className : "warn",
+					position  : "right bottom"
+				});
+				$("#generic_preloader").LoadingOverlay("hide");
+			}
+		});
+	}
+	
+	$(document).ready(function (){
+		$("#overlay").LoadingOverlay("show");
+		printFooter();
+		printDashboardKPI('<?=base_url();?>Dashboard/getKPI');
+		printRightAside();
+		printUserNavBar();
+		$("#overlay").LoadingOverlay("hide");	
+	})
 </script>
 
 

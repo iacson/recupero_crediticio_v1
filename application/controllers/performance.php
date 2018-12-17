@@ -164,13 +164,6 @@ class Performance extends CI_Controller {
 
 		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
 		$xlsData = $objWriter->save('php://output');
-		
-		$response =  array(
-			'op' => 'ok',
-			'file' => "data:application/vnd.ms-excel;base64,".base64_encode($xlsData)
-		);
-		
-		die(json_encode($response));
 
 	}
 }

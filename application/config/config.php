@@ -22,7 +22,7 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/recupero_crediticio_v1';
+$config['base_url'] = 'http://'.$_SERVER['SERVER_ADDR'].'/recupero_crediticio_v1';
 
 /*
 |--------------------------------------------------------------------------

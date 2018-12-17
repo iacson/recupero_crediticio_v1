@@ -60,7 +60,7 @@
 	<ol class="breadcrumb">
 		<li class="active">Última Actualización: dd/mm/yyyy hh:mm</li>
 	</ol>
-	<button type="submit" class="btn btn-success pull-left" style="margin-top: 8px;" onclick="export_performance_xls()"><i class="fa fa-save" style="padding-right: 5px;"></i> Descargar XLS</button>
+	<button type="submit" class="btn btn-success pull-left" style="margin-top: 8px;" onclick="window.open('<?=base_url();?>Performance/export_performance_xls')"><i class="fa fa-save" style="padding-right: 5px;"></i> Descargar XLS</button>
 	</br>
 	</br>
     </section>
@@ -117,12 +117,97 @@
 </div>
 
 <script>
+function printPerformanceTable(url){
+	$.ajax({
+		url: url,
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		success: function(data){
+			html = tablaPerformance;
+			
+			for(let i=0; i<data.message.length; i++){
+
+			var a1 = data.message[i].idAgente;
+            var a2 = data.message[i].Int;
+            var a3 = data.message[i].Box;
+            var a4 = data.message[i].Agente;
+            var a5 = data.message[i].LogIn;
+            var a6 = data.message[i].LogOut;
+            var a7 = data.message[i].HoraPrimerLlamado;
+            var a8 = data.message[i].HoraUltimoLlamado;
+            var a9 = data.message[i].TiempoMuerto;
+            var a10 = data.message[i].TotalLogueo;
+            var a11 = data.message[i].TotalComunicacion;
+            var a12 = data.message[i].CantidadLLamdas;
+            var a13 = data.message[i].CuentasTadas;
+            var a14 = data.message[i].QMinCtas;
+            var a15 = data.message[i].CantidadGestiones;
+            var a16 = data.message[i].CtTitular;
+            var a17 = data.message[i].CtFamiliar;
+            var a18 = data.message[i].CtTercero;
+            var a19 = data.message[i].Compromisos;
+            var a20 = data.message[i].Recupero;
+            var a21 = data.message[i].RecuperoCuotas;
+            var a22 = data.message[i].Cuponeras;
+            var a23 = data.message[i].TBreak;
+            var a24 = data.message[i].TBaño;
+            var a25 = data.message[i].TCoach;
+            var a26 = data.message[i].NoResponde;
+            var a27 = data.message[i].Ocupado;
+            var a28 = data.message[i].ImpContactar;
+            var a29 = data.message[i].Cliente;
+            var a30 = data.message[i].PopUp;
+            var a31 = data.message[i].QSalientes;
+            var a32 = data.message[i].QEntrantes;
+            var a33 = data.message[i].TotalLlamados;
+            var a34 = data.message[i].ParamLlamdas;
+            var a35 = data.message[i].Supervisor;
+            var a36 = data.message[i].Qnrep;
+            var a37 = data.message[i].MayorRep;
+            var a38 = data.message[i].NroTelRep;
+            var a39 = data.message[i].CantiRepInternos;
+            var a40 = data.message[i].DurLlamInternos;
+            var a41 = data.message[i].TNoMolestar;
+            var a42 = data.message[i].PorcLlam;
+            var a43 = data.message[i].PorcGest;
+            var a44 = data.message[i].PorcContact;
+            var a45 = data.message[i].IndJust;				
+				
+				html += '<tr><td>'+a1+'</td><td>'+a2+'</td><td>'+a3+'</td><td>'+a4+'</td><td>'+a5+'</td><td>'+a6+'</td><td>'+a7+'</td><td>'+a8+'</td><td>'+a9+'</td><td>'+a10+'</td><td>'+a11+'</td><td>'+a12+'</td><td>'+a13+'</td><td>'+a14+'</td><td>'+a15+'</td><td>'+a16+'</td><td>'+a17+'</td><td>'+a18+'</td><td>'+a19+'</td><td>'+a20+'</td><td>'+a21+'</td><td>'+a22+'</td><td>'+a23+'</td><td>'+a24+'</td><td>'+a25+'</td><td>'+a26+'</td><td>'+a27+'</td><td>'+a28+'</td><td>'+a29+'</td><td>'+a30+'</td><td>'+a31+'</td><td>'+a32+'</td><td>'+a33+'</td><td>'+a34+'</td><td>'+a35+'</td><td>'+a36+'</td><td>'+a37+'</td><td>'+a38+'</td><td>'+a39+'</td><td>'+a40+'</td><td>'+a41+'</td><td>'+a42+'</td><td>'+a43+'</td><td>'+a44+'</td><td>'+a45+'</td></tr>';
+
+			}
+			
+			html += '</tbody></table>';
+			tablaPerformance = null;
+			
+			$("#PERFORMANCE_TABLE").html(html);
+			
+			$(function () {
+				$('#performance_t').DataTable({
+				  'paging'      : true,
+				  'lengthChange': true,
+				  'searching'   : true,
+				  'ordering'    : true,
+				  'info'        : true,
+				  'autoWidth'   : true,
+				  'scrollX'	: true
+				})
+			})
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+		}
+	});				
+}
+$(document).ready(function (){
 	$("#overlay").LoadingOverlay("show");
 	printFooter();
 	printRightAside();
 	printUserNavBar();
 	printPerformanceTable('<?=base_url();?>Performance/getPerformance');
 	$("#overlay").LoadingOverlay("hide");
+})
 </script>
 
 <style>
