@@ -5,10 +5,12 @@ class Users extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Crud_model');	
 		$this->load->helper('url');
+		
+		// 		$this->checkPermisos("Users", "3");
 	}
 
 	function index()
-	{		
+	{
 		$data['csrf'] = array(
 			'name' => $this->security->get_csrf_token_name(),
 			'hash' => $this->security->get_csrf_hash()
@@ -43,25 +45,20 @@ class Users extends CI_Controller {
 			$profile     = $this->input->post('profile');
 			$user     = $this->input->post('user');
 
-			// $data = array(
-				// 'name'			=> $name,
-				// 'lastname'  	=> $lastname,
-				// 'birthday'    	=> $birthday,
-				// 'email'    	=> $email,
-				// 'job'    	=> $job,
-				// 'profile'    	=> $profile,
-				// 'user'    	=> $user
-			// );
-					
-					
 			$data = array(
-				'user'			=> $user,
-				'password'  	=> $lastname			
+				'name'			=> $name,
+				'lastname'  	=> $lastname,
+				'birthday'    	=> $birthday,
+				'email'    		=> $email,
+				'job'    		=> $job,
+				'profile'    	=> $profile,
+				'user'    		=> $user
 			);
 					
 			$response = $this->Crud_model->insertData('usuarios', $data);
 			
 			if(!$response){ $status = FALSE; }
+			
 			if($status)
 			{
 				$response = array(
@@ -83,7 +80,7 @@ class Users extends CI_Controller {
 		else
 		{
 			$response = array(
-				'message' => 'Error, verifique los datos.',
+				'message' => 'Error, token revocado.',
 				'type'    => 'warn'
 			);
 			
@@ -100,21 +97,32 @@ class Users extends CI_Controller {
 			
 			$status = TRUE;		
 			
-			$campo1     = $this->input->post('name');
-			$campo2     = $this->input->post('password');
+			$id			= $this->input->post('id');
+			$name		= $this->input->post('name');
+			$lastname	= $this->input->post('lastname');
+			$birthday	= $this->input->post('birthday');
+			$email		= $this->input->post('email');
+			$job		= $this->input->post('job');
+			$profile	= $this->input->post('profile');
 					
 			$data = array(
-				'name'			=> $campo1,
-				'password'  	=> $campo2			
+				'id'			=> $id,
+				'name'			=> $name,
+				'lastname'  	=> $lastname,
+				'birthday'    	=> $birthday,
+				'email'    		=> $email,
+				'job'    		=> $job,
+				'profile'    	=> $profile
 			);
 					
-			$response = $this->Crud_model->functionData($data);
+			$response = $this->Crud_model->updateData('usuarios', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
+			
 			if($status)
 			{
 				$response = array(
-					'message' => 'Usuario editado.',
+					'message' => 'Cambios guardados.',
 					'type'    => 'success'
 				);
 			}
@@ -132,7 +140,7 @@ class Users extends CI_Controller {
 		else
 		{
 			$response = array(
-				'message' => 'Error de seguridad.',
+				'message' => 'Error, token revocado.',
 				'type'    => 'warn'
 			);
 			
@@ -149,21 +157,20 @@ class Users extends CI_Controller {
 			
 			$status = TRUE;		
 			
-			$campo1     = $this->input->post('name');
-			$campo2     = $this->input->post('password');
-					
+			$id = $this->input->post('id');
+			$id = $this->input->post('id');
+
 			$data = array(
-				'name'			=> $campo1,
-				'password'  	=> $campo2			
+				'id' => $id
 			);
 					
-			$response = $this->Crud_model->functionData($data);
+			$response = $this->Crud_model->deleteData('usuarios', 'id', $id);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
 			{
 				$response = array(
-					'message' => 'Usuario editado.',
+					'message' => 'Usuario eliminado.',
 					'type'    => 'success'
 				);
 			}
@@ -198,21 +205,21 @@ class Users extends CI_Controller {
 			
 			$status = TRUE;		
 			
-			$campo1     = $this->input->post('name');
-			$campo2     = $this->input->post('password');
-					
+			$id 	= $this->input->post('id');
+			$psw 	= rand (100000, 999999);
+
 			$data = array(
-				'name'			=> $campo1,
-				'password'  	=> $campo2			
+				'id' 		=> $id,
+				'password' 	=> $psw
 			);
-					
-			$response = $this->Crud_model->functionData($data);
+		
+			$response = $this->Crud_model->updateData('usuarios', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
 			{
 				$response = array(
-					'message' => 'Usuario editado.',
+					'message' => 'Password reiniciada.',
 					'type'    => 'success'
 				);
 			}
@@ -237,6 +244,36 @@ class Users extends CI_Controller {
 			echo json_encode($response);
 			die;
 		}
+	}
+	
+	function user_existe()
+	{		
+		$type = $this->input->get('type');
+		
+		if($type == 'email'){
+
+			$field 	= 'email';
+			$id 	= $this->input->get('email');
+
+		} else {
+			$field 	= 'user';
+			$id 	= $this->input->get('user');				
+		}
+		
+		$data = array(
+			$field => $id
+		);
+	
+		$response = $this->Crud_model->countData('usuarios', $field, $id);
+
+		if($response == 0){
+			$existe = FALSE;
+		} else {
+			$existe = TRUE;
+		}
+		
+		echo json_encode($existe);
+		die;
 	}
 }
 ?>
