@@ -4,6 +4,7 @@ class Performance extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Crud_model');
+		$this->load->model('Performance_model');
 		$this->load->helper('url');
 	}
 	
@@ -24,27 +25,30 @@ class Performance extends CI_Controller {
 	
 	public function getPerformance()
 	{
-		$sql = "
-			SELECT T2.Nombre, T2.Apellido, T1.*, T3.PrimerLlamada, T3.UltimaLlamada FROM(
-			SELECT         IdAgente, 
-									IdEstado,
-									Duracion,
-									MIN(FechaHoraInicio) AS LogIn, 
-									MAX(FechaHoraInicio) AS LogOut,
-									SEC_TO_TIME(TIME_TO_SEC(MAX(FechaHoraInicio)) - TIME_TO_SEC(MIN(FechaHoraInicio))) AS TotalLogueo
-			FROM telepromdb.logestados 
-			WHERE DATE(FechaHoraInicio) = '2019-01-07'
-			GROUP BY IdAgente) AS T1
-			INNER JOIN usuarios as T2 ON (T1.IdAgente = T2.Id)
-			INNER JOIN (SELECT IdAgente, 
-									MIN(FechaHoraInicio) AS PrimerLlamada, 
-									MAX(FechaHoraInicio) AS UltimaLlamada
-			FROM telepromdb.logestados
-			WHERE DATE(FechaHoraInicio) = '2019-01-07' AND IdEstado BETWEEN '120' AND '190'
-			GROUP BY IdAgente) as T3 ON (T3.IdAgente = T2.Id)
-		";
-
-		$data = $this->db->query($sql)->result_array();
+	$data = $this->Performance_model->getPerformance();
+		
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+		
+		echo json_encode($response);
+		die;
+	}
+	
+	public function getKPI()
+	{
+	$data = $this->Performance_model->getKPI();
 		
 		if(count($data) > 0)
 		{

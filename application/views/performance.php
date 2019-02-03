@@ -51,21 +51,19 @@
 
 
    <div class="content-wrapper" id="overlay">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Performance
         <small>Performance Diario</small>
       </h1>
 	<ol class="breadcrumb">
-		<li class="active">Última Actualización: dd/mm/yyyy hh:mm</li>
+		<li class="active">Actualización en tiempo real</li>
 	</ol>
 	<button type="submit" class="btn btn-success pull-left" style="margin-top: 8px;" onclick="window.open('<?=base_url();?>Performance/export_performance_xls')"><i class="fa fa-save" style="padding-right: 5px;"></i> Descargar XLS</button>
 	</br>
 	</br>
     </section>
 
-    <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -73,39 +71,27 @@
             <div class="box-header">
               <h3 class="box-title">Detalle de Performance</h3>
             </div>
-            <!-- /.box-header -->
             <div class="box-body" id="PERFORMANCE_TABLE">
 				<table id="performance_t" class="table table-bordered table-hover">
-					<thead><tr><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th></tr></thead>
+					<thead>
+						<tr>
+							<th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th><th>Cargando</th>
+						</tr>
+					</thead>
 					<tbody>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+						<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
 					</tbody>
 				</table>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
-
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
     </section>
-    <!-- /.content -->
   </div>
  
  <footer id="main-footer" class="main-footer">
@@ -129,54 +115,34 @@ function printPerformanceTable(url){
 			
 			for(let i=0; i<data.message.length; i++){
 
-			var a1 = data.message[i].Nombre;
-            var a2 = data.message[i].Apellido;
-            var a3 = data.message[i].IdAgente;
-            var a4 = data.message[i].IdEstado;
-            var a5 = data.message[i].Duracion;
-            var a6 = data.message[i].LogIn;
-            var a7 = data.message[i].LogOut;
-            var a7 = data.message[i].TotalLogueo;
-            var a8 = data.message[i].PrimerLlamada;
-            var a9 = data.message[i].UltimaLlamada;
-            var a10 = data.message[i].Nombre;
-            var a11 = data.message[i].Nombre;
-            var a12 = data.message[i].Nombre;
-            var a13 = data.message[i].Nombre;
-            var a14 = data.message[i].Nombre;
-            var a15 = data.message[i].Nombre;
-            var a16 = data.message[i].Nombre;
-            var a17 = data.message[i].Nombre;
-            var a18 = data.message[i].Nombre;
-            var a19 = data.message[i].Nombre;
-            var a20 = data.message[i].Nombre;
-            var a21 = data.message[i].Nombre;
-            var a22 = data.message[i].Nombre;
-            var a23 = data.message[i].Nombre;
-            var a24 = data.message[i].Nombre;
-            var a25 = data.message[i].Nombre;
-            var a26 = data.message[i].Nombre;
-            var a27 = data.message[i].Nombre;
-            var a28 = data.message[i].Nombre;
-            var a29 = data.message[i].Nombre;
-            var a30 = data.message[i].Nombre;
-            var a31 = data.message[i].Nombre;
-            var a32 = data.message[i].Nombre;
-            var a33 = data.message[i].Nombre;
-            var a34 = data.message[i].Nombre;
-            var a35 = data.message[i].Nombre;
-            var a36 = data.message[i].Nombre;
-            var a37 = data.message[i].Nombre;
-            var a38 = data.message[i].Nombre;
-            var a39 = data.message[i].Nombre;
-            var a40 = data.message[i].Nombre;
-            var a41 = data.message[i].Nombre;
-            var a42 = data.message[i].Nombre;
-            var a43 = data.message[i].Nombre;
-            var a44 = data.message[i].Nombre;
-            var a45 = data.message[i].Nombre;				
+				var Nombre = data.message[i].Nombre;
+				var Apellido = data.message[i].Apellido;
+				var LogIn = data.message[i].LogIn;
+				var LogOut = data.message[i].LogOut;
+				var TotalLogueo = data.message[i].TotalLogueo;
+				var PrimerLlamada = data.message[i].PrimerLlamada;
+				var UltimaLlamada = data.message[i].UltimaLlamada;
+				var Popup = data.message[i].Popup;
+				var Salientes = data.message[i].Salientes;
+				var Entrantes = data.message[i].Entrantes;
+				var TotalLlamadas = data.message[i].TotalLlamadas;
+				var MinLlamadas = data.message[i].MinLlamadas;
+				var PercLlamadas = data.message[i].PercLlamadas;
+				var TotalComunicacion = data.message[i].TotalComunicacion;
+				var PercTotalComunicacion = data.message[i].PercTotalComunicacion;
+				var TiempoOcioso = data.message[i].TiempoOcioso;
+				var PercTiempoOcioso = data.message[i].PercTiempoOcioso;
+				var TiempoBreak = data.message[i].TiempoBreak;
+				var TiempoBano = data.message[i].TiempoBano;
+				var TiempoLeader = data.message[i].TiempoLeader;
+				var TiempoCoach = data.message[i].TiempoCoach;
+				var TiempoAdmin = data.message[i].TiempoAdmin;
+				var TiempoWsp = data.message[i].TiempoWsp;
+				var TiempoTipeo = data.message[i].TiempoTipeo;
+				var PercTotalProd = data.message[i].PercTotalProd;
+				var MaxRepeteciones = data.message[i].MaxRepeteciones;
 				
-				html += '<tr><td>'+a1+'</td><td>'+a2+'</td><td>'+a3+'</td><td>'+a4+'</td><td>'+a5+'</td><td>'+a6+'</td><td>'+a7+'</td><td>'+a8+'</td><td>'+a9+'</td><td>'+a10+'</td><td>'+a11+'</td><td>'+a12+'</td><td>'+a13+'</td><td>'+a14+'</td><td>'+a15+'</td><td>'+a16+'</td><td>'+a17+'</td><td>'+a18+'</td><td>'+a19+'</td><td>'+a20+'</td><td>'+a21+'</td><td>'+a22+'</td><td>'+a23+'</td><td>'+a24+'</td><td>'+a25+'</td><td>'+a26+'</td><td>'+a27+'</td><td>'+a28+'</td><td>'+a29+'</td><td>'+a30+'</td><td>'+a31+'</td><td>'+a32+'</td><td>'+a33+'</td><td>'+a34+'</td><td>'+a35+'</td><td>'+a36+'</td><td>'+a37+'</td><td>'+a38+'</td><td>'+a39+'</td><td>'+a40+'</td><td>'+a41+'</td><td>'+a42+'</td><td>'+a43+'</td><td>'+a44+'</td><td>'+a45+'</td></tr>';
+				html += '<tr><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+LogIn+'</td><td>'+LogOut+'</td><td>'+TotalLogueo+'</td><td>'+PrimerLlamada+'</td><td>'+UltimaLlamada+'</td><td>'+Popup+'</td><td>'+Salientes+'</td><td>'+Entrantes+'</td><td>'+TotalLlamadas+'</td><td>'+MinLlamadas+'</td><td>'+PercLlamadas+'</td><td>'+TotalComunicacion+'</td><td>'+PercTotalComunicacion+'</td><td>'+TiempoOcioso+'</td><td>'+PercTiempoOcioso+'</td><td>'+TiempoBreak+'</td><td>'+TiempoBano+'</td><td>'+TiempoLeader+'</td><td>'+TiempoCoach+'</td><td>'+TiempoAdmin+'</td><td>'+TiempoWsp+'</td><td>'+TiempoTipeo+'</td><td>'+PercTotalProd+'</td><td>'+MaxRepeteciones+'</td></tr>';
 
 			}
 			
@@ -195,9 +161,15 @@ function printPerformanceTable(url){
 				  'autoWidth'   : true,
 				  'scrollX'	: true
 				})
-			})
+			});
+			$("#overlay").LoadingOverlay("hide")
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
+			$.notify(xhr.status+': '+thrownError, {
+				className : "warn",
+				position  : "right bottom"
+			});
+			$("#overlay").LoadingOverlay("hide");
 		}
 	});				
 }
@@ -207,7 +179,6 @@ $(document).ready(function (){
 	printRightAside();
 	printUserNavBar();
 	printPerformanceTable('<?=base_url();?>Performance/getPerformance');
-	$("#overlay").LoadingOverlay("hide");
 })
 </script>
 

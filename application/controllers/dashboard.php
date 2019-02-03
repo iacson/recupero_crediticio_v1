@@ -21,27 +21,5 @@ class Dashboard extends CI_Controller {
 		$this->load->view('headers', $menu);
 		$this->load->view('dashboard', $data);
 	}
-	
-	public function getKPI()
-	{
-		$data = $this->Crud_model->getOrderDataResultById('kpi', 'HABILITADO', 1, 'ORDEN');
-		if(count($data) > 0)
-		{
-			$response = array(
-				'message' => $data,
-				'type'    => 'success'
-			);
-		}
-		else
-		{
-			$response = array(
-				'message' => 'Error, verifique los datos.',
-				'type'    => 'warn'
-			);
-		}
-		
-		echo json_encode($response);
-		die;
-	}
 }
 ?>

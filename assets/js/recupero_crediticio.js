@@ -1,49 +1,32 @@
 var tablaPerformance = `<table id="performance_t" class="table table-bordered table-hover"><thead><tr>
-			<th>Nombre</th>
-            <th>Apellido</th>
-            <th>IdAgente</th>
-            <th>IdEstado</th>
-            <th>Duración</th>
-            <th>Log In</th>
-            <th>Log Out</th>
-            <th>Total Logueo</th>
-            <th>Primer Llamada</th>
-            <th>Última Llamada</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+
+				<th>Nombre</th>
+				<th>Apellido</th>
+				<th>LogIn</th>
+				<th>LogOut</th>
+				<th>Total Logueo</th>
+				<th>PrimerLlamada</th>
+				<th>UltimaLlamada</th>
+				<th>Pop up</th>
+				<th>Salientes</th>
+				<th>Entrantes</th>
+				<th>Total Llamadas</th>
+				<th># Min Llamadas</th>
+				<th>% Llamadas</th>
+				<th>Total Comunicacion</th>
+				<th>% Total Comunicacion</th>
+				<th>Tiempo Ocioso</th>
+				<th>% Tiempo Ocioso</th>
+				<th>Tiempo Break</th>
+				<th>Tiempo Bano</th>
+				<th>Tiempo Leader</th>
+				<th>Tiempo Coach</th>
+				<th>Tiempo Admin</th>
+				<th>Tiempo Wsp</th>
+				<th>Tiempo Tipeo</th>
+				<th>% Total Prod</th>
+				<th>Max Repeteciones</th>
+
 			</tr></thead><tbody>`;
 
 function printFooter(){	

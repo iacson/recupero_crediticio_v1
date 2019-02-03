@@ -27,7 +27,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="Users"><i class="fa fa-user"></i> Usuarios</a></li>
-            <li><a href="Others"><i class="fa fa-rocket"></i> Other</a></li>
+            <li><a href="Assign"><i class="fa fa-rocket"></i> Asignaciones</a></li>
           </ul>
         </li>
 			';
