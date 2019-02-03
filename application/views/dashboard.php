@@ -1,5 +1,3 @@
-<style>
-</style>
 <body class="hold-transition skin-blue sidebar-mini">
 
 <div class="wrapper">
@@ -125,7 +123,7 @@
 					className : "warn",
 					position  : "right bottom"
 				});
-				$("#generic_preloader").LoadingOverlay("hide");
+				$("#overlay").LoadingOverlay("hide");
 			}
 		});
 	}

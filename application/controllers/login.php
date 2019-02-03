@@ -12,8 +12,19 @@ class Login extends CI_Controller {
 			'name' => $this->security->get_csrf_token_name(),
 			'hash' => $this->security->get_csrf_hash()
 		);
-
+		
 		$this->load->view('login');
+	}
+	
+	public function SignIn(){
+		
+		$email = 		$this->input->post('user');
+		$password = 	$this->input->post('password');
+		
+		echo $email." - ".$password;
+		
+		echo 'probando';
+		
 	}
 }
 ?>

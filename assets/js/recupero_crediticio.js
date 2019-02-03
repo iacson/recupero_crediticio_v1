@@ -1,49 +1,49 @@
 var tablaPerformance = `<table id="performance_t" class="table table-bordered table-hover"><thead><tr>
-			<th>idAgente</th>
-            <th>Int</th>
-            <th>Box</th>
-            <th>Agente</th>
-            <th>LogIn</th>
-            <th>LogOut</th>
-            <th>HoraPrimerLlamado</th>
-            <th>HoraUltimoLlamado</th>
-            <th>TiempoMuerto</th>
-            <th>TotalLogueo</th>
-            <th>TotalComunicacion</th>
-            <th>CantidadLLamdas</th>
-            <th>CuentasTadas</th>
-            <th>QMinCtas</th>
-            <th>CantidadGestiones</th>
-            <th>CtTitular</th>
-            <th>CtFamiliar</th>
-            <th>CtTercero</th>
-            <th>Compromisos</th>
-            <th>Recupero</th>
-            <th>RecuperoCuotas</th>
-            <th>Cuponeras</th>
-            <th>TBreak</th>
-            <th>TBaño</th>
-            <th>TCoach</th>
-            <th>NoResponde</th>
-            <th>Ocupado</th>
-            <th>ImpContactar</th>
-            <th>Cliente</th>
-            <th>PopUp</th>
-            <th>QSalientes</th>
-            <th>QEntrantes</th>
-            <th>TotalLlamados</th>
-            <th>ParamLlamdas</th>
-            <th>Supervisor</th>
-            <th>Qnrep</th>
-            <th>MayorRep</th>
-            <th>NroTelRep</th>
-            <th>CantiRepInternos</th>
-            <th>DurLlamInternos</th>
-            <th>TNoMolestar</th>
-            <th>PorcLlam</th>
-            <th>PorcGest</th>
-            <th>PorcContact</th>
-            <th>IndJust</th>
+			<th>Nombre</th>
+            <th>Apellido</th>
+            <th>IdAgente</th>
+            <th>IdEstado</th>
+            <th>Duración</th>
+            <th>Log In</th>
+            <th>Log Out</th>
+            <th>Total Logueo</th>
+            <th>Primer Llamada</th>
+            <th>Última Llamada</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
 			</tr></thead><tbody>`;
 
 function printFooter(){	
