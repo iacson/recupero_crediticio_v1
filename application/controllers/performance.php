@@ -69,6 +69,30 @@ class Performance extends CI_Controller {
 		die;
 	}
 	
+	
+	public function getAssign()
+	{
+	$data = $this->Performance_model->getAssign();
+		
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+		
+		echo json_encode($response);
+		die;
+	}
+	
 	public function export_performance_xls(){
 		
 		function cellColor($cells,$color, $objPHPExcel){
