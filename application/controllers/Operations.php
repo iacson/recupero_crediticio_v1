@@ -1,14 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Assign extends CI_Controller {
+class Operations extends CI_Controller {
 	function __construct(){
 		parent::__construct();
-		$this->load->model('Crud_model');
-		$this->load->model('Assign_model');	
+		$this->load->model('Crud_model');	
 		$this->load->helper('url');
 		
+		// 		$this->checkPermisos("Users", "3");
 	}
 
+
+	
 	function index()
 	{
 		$data['csrf'] = array(
@@ -16,45 +18,21 @@ class Assign extends CI_Controller {
 			'hash' => $this->security->get_csrf_hash()
 		);
 		
-		$menu['title'] = 'Assign';
+		$menu['title'] = 'Operations';
 		$menu['menu'] = array('Dashboard|fa-dashboard', 'Performance|fa-th');
 
 		$this->load->library('menu', $menu);
 		$data['menu'] = $this->menu->construirMenu();
 		$this->load->view('headers', $menu);
-		$this->load->view('assign', $data);
-		$this->load->view('modal/modal_assign_add', $data);
-		$this->load->view('modal/modal_assign_edit', $data);
-		$this->load->view('modal/modal_assign_delete', $data);
+		$this->load->view('operations', $data);
+		$this->load->view('modal/modal_operations_add', $data);
+		$this->load->view('modal/modal_operations_delete', $data);
+		$this->load->view('modal/modal_operations_edit', $data);
+		$this->load->view('modal/modal_operations_refresh', $data);
 		
 	}
 	
-
-public function getAssign()
-	{
-	$data = $this->Assign_model->getAssign();
-		
-		if(count($data) > 0)
-		{
-			$response = array(
-				'message' => $data,
-				'type'    => 'success'
-			);
-		}
-		else
-		{
-			$response = array(
-				'message' => 'Error, verifique los datos.',
-				'type'    => 'warn'
-			);
-		}
-		
-		echo json_encode($response);
-		die;
-	}
-
-
-	function assign_add()
+	function operations_add()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -62,32 +40,32 @@ public function getAssign()
 			
 			$status = TRUE;		
 			
-			$IdAgente		= $this->input->post('IdAgente');
-			$IdJefeOp		= $this->input->post('IdJefeOp');
-			$IdSupervisor	= $this->input->post('IdSupervisor');
-			$IdCampana		= $this->input->post('IdCampana');
-			$PercRecupero	= $this->input->post('PercRecupero');
+			$IdJefeOp     = $this->input->post('IdJefeOp');
+			$JefeOp 	= $this->input->post('JefeOp');
+			// $birthday     = $this->input->post('birthday');
+			// $email     = $this->input->post('email');
+			// $job     = $this->input->post('job');
 			// $profile     = $this->input->post('profile');
 			// $user     = $this->input->post('user');
 
 			$data = array(
-				'IdAgente'			=> $IdAgente,
-				'IdJefeOp'  		=> $IdJefeOp,
-				'IdSupervisor '    	=> $IdSupervisor ,
-				'IdCampana'    		=> $IdCampana,
-				'PercRecupero' 		=> $PercRecupero
+				'IdJefeOp'			=> $IdJefeOp,
+				'JefeOp'	 	 	=> $lJefeOp
+				// 'birthday'    	=> $birthday,
+				// 'email'    		=> $email,
+				// 'job'    		=> $job,
 				// 'profile'    	=> $profile,
 				// 'user'    		=> $user
 			);
 					
-			$response = $this->Crud_model->insertData('plt_assign', $data);
+			$response = $this->Crud_model->insertData('plt_jefe', $data);
 			
 			if(!$response){ $status = FALSE; }
 			
 			if($status)
 			{
 				$response = array(
-					'message' => 'Asignación agregada correctamente.',
+					'message' => 'Jefe de operaciones agregado correctamente.',
 					'type'    => 'success'
 				);
 			}
@@ -114,7 +92,7 @@ public function getAssign()
 		}
 	}
 	
-	function assign_edit()
+	function operations_edit()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -122,25 +100,27 @@ public function getAssign()
 			
 			$status = TRUE;		
 			
-			// $id			= $this->input->post('id');
-			$IdAgente		= $this->input->post('IdAgente');
-			$IdJefeOp		= $this->input->post('IdJefeOp');
-			$IdSupervisor 	= $this->input->post('IdSupervisor');
-			$IdCampana 		= $this->input->post('IdCampana');
-			$PercRecupero	= $this->input->post('PercRecupero');
-		
+			$IdJefeOp   = $this->input->post('IdJefeOp');
+			$JefeOp 	= $this->input->post('JefeOp');
+
+			// $lastname	= $this->input->post('lastname');
+			// $birthday	= $this->input->post('birthday');
+			// $email		= $this->input->post('email');
+			// $job		= $this->input->post('job');
+			// $profile	= $this->input->post('profile');
 					
 			$data = array(
-				// 'id'			=> $id,
-				'IdAgente'			=> $IdAgente,
-				'IdJefeOp'  		=> $IdJefeOp,
-				'IdSupervisor'    	=> $IdSupervisor,
-				'IdCampana'    		=> $IdCampana,
-				'PercRecupero'    	=> $PercRecupero
-				// 'PercRecupero'    	=> $profile
+				'IdJefeOp'			=> $IdJefeOp,
+				'JefeOp'	 	 	=> $JefeOp
+				// 'lastname'  	=> $lastname,
+				// 'birthday'    	=> $birthday,
+				// 'email'    		=> $email,
+				// 'job'    		=> $job,
+				// 'profile'    	=> $profile
 			);
 					
-			$response = $this->Crud_model->updateData('plt_assign', 'id', $id, $data);
+			
+			$response = $this->Crud_model->updateData('plt_jefeOp', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			
@@ -174,7 +154,7 @@ public function getAssign()
 		}
 	}
 	
-	function assign_delete()
+	function operations_delete()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -189,13 +169,13 @@ public function getAssign()
 				'id' => $id
 			);
 					
-			$response = $this->Crud_model->deleteData('plt_assign', 'id', $id);
+			$response = $this->Crud_model->deleteData('plt_jefeOp', 'id', $id);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
 			{
 				$response = array(
-					'message' => 'Asignación eliminada.',
+					'message' => 'Jefe de Operaciones eliminado.',
 					'type'    => 'success'
 				);
 			}
@@ -222,7 +202,7 @@ public function getAssign()
 		}
 	}
 	
-	function assign_reset_psw()
+	function operations_reset_psw()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -238,7 +218,7 @@ public function getAssign()
 				'password' 	=> $psw
 			);
 		
-			$response = $this->Crud_model->updateData('plt_assign', 'id', $id, $data);
+			$response = $this->Crud_model->updateData('plt_jefeOp', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
@@ -271,25 +251,25 @@ public function getAssign()
 		}
 	}
 	
-	function assign_existe()
+	function operations_existe()
 	{		
 		$type = $this->input->get('type');
 		
-		if($type == 'email'){
+		if($type == 'IdJefeOp'){
 
-			$field 	= 'email';
-			$id 	= $this->input->get('email');
+			$field 	= 'IdJefeOp';
+			$id 	= $this->input->get('IdJefeOp');
 
 		} else {
-			$field 	= 'user';
-			$id 	= $this->input->get('user');				
+			$field 	= 'JefeOp';
+			$id 	= $this->input->get('JefeOp');				
 		}
 		
 		$data = array(
 			$field => $id
 		);
 	
-		$response = $this->Crud_model->countData('plt_assign', $field, $id);
+		$response = $this->Crud_model->countData('plt_jefeOp', $field, $id);
 
 		if($response == 0){
 			$existe = FALSE;

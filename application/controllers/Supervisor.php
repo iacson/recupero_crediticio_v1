@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Assign extends CI_Controller {
+class Supervisor extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Crud_model');
-		$this->load->model('Assign_model');	
+		$this->load->model('Supervisor_model');		
 		$this->load->helper('url');
 		
+		// 		$this->checkPermisos("Users", "3");
 	}
 
 	function index()
@@ -16,23 +17,23 @@ class Assign extends CI_Controller {
 			'hash' => $this->security->get_csrf_hash()
 		);
 		
-		$menu['title'] = 'Assign';
+		$menu['title'] = 'Supervisor';
 		$menu['menu'] = array('Dashboard|fa-dashboard', 'Performance|fa-th');
 
 		$this->load->library('menu', $menu);
 		$data['menu'] = $this->menu->construirMenu();
 		$this->load->view('headers', $menu);
-		$this->load->view('assign', $data);
-		$this->load->view('modal/modal_assign_add', $data);
-		$this->load->view('modal/modal_assign_edit', $data);
-		$this->load->view('modal/modal_assign_delete', $data);
-		
+		$this->load->view('supervisor', $data);
+		$this->load->view('modal/modal_supervisor_delete', $data);
+		$this->load->view('modal/modal_supervisor_edit', $data);
+		$this->load->view('modal/modal_supervisor_refresh', $data);
+		$this->load->view('modal/modal_supervisor_add', $data);
 	}
 	
 
-public function getAssign()
+	public function getSupervisor()
 	{
-	$data = $this->Assign_model->getAssign();
+	$data = $this->Supervisor_model->getSupervisor();
 		
 		if(count($data) > 0)
 		{
@@ -54,7 +55,7 @@ public function getAssign()
 	}
 
 
-	function assign_add()
+	function supervisor_add()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -62,32 +63,32 @@ public function getAssign()
 			
 			$status = TRUE;		
 			
-			$IdAgente		= $this->input->post('IdAgente');
-			$IdJefeOp		= $this->input->post('IdJefeOp');
-			$IdSupervisor	= $this->input->post('IdSupervisor');
-			$IdCampana		= $this->input->post('IdCampana');
-			$PercRecupero	= $this->input->post('PercRecupero');
+			$IdSupervisor    = $this->input->post('IdSupervisor');
+			$Supervisor 	= $this->input->post('Supervisor');
+			// $birthday     = $this->input->post('birthday');
+			// $email     = $this->input->post('email');
+			// $job     = $this->input->post('job');
 			// $profile     = $this->input->post('profile');
 			// $user     = $this->input->post('user');
 
 			$data = array(
-				'IdAgente'			=> $IdAgente,
-				'IdJefeOp'  		=> $IdJefeOp,
-				'IdSupervisor '    	=> $IdSupervisor ,
-				'IdCampana'    		=> $IdCampana,
-				'PercRecupero' 		=> $PercRecupero
+				'IdSupervisor'			=> $IdSupervisor,
+				'Supervisor'  	=> $Supervisor
+				// 'birthday'    	=> $birthday,
+				// 'email'    		=> $email,
+				// 'job'    		=> $job,
 				// 'profile'    	=> $profile,
 				// 'user'    		=> $user
 			);
 					
-			$response = $this->Crud_model->insertData('plt_assign', $data);
+			$response = $this->Crud_model->insertData('plt_supervisor', $data);
 			
 			if(!$response){ $status = FALSE; }
 			
 			if($status)
 			{
 				$response = array(
-					'message' => 'Asignación agregada correctamente.',
+					'message' => 'Usuario agregado correctamente.',
 					'type'    => 'success'
 				);
 			}
@@ -114,33 +115,33 @@ public function getAssign()
 		}
 	}
 	
-	function assign_edit()
+	function supervisor_edit()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
 		if($is_ajax){
 			
 			$status = TRUE;		
-			
-			// $id			= $this->input->post('id');
-			$IdAgente		= $this->input->post('IdAgente');
-			$IdJefeOp		= $this->input->post('IdJefeOp');
-			$IdSupervisor 	= $this->input->post('IdSupervisor');
-			$IdCampana 		= $this->input->post('IdCampana');
-			$PercRecupero	= $this->input->post('PercRecupero');
-		
+
+			$IdSupervisor 			= $this->input->post('IdSupervisor');
+			$Supervisor				= $this->input->post('Supervisor');
+			// $lastname	= $this->input->post('lastname');
+			// $birthday	= $this->input->post('birthday');
+			// $email		= $this->input->post('email');
+			// $job		= $this->input->post('job');
+			// $profile	= $this->input->post('profile');
 					
 			$data = array(
-				// 'id'			=> $id,
-				'IdAgente'			=> $IdAgente,
-				'IdJefeOp'  		=> $IdJefeOp,
-				'IdSupervisor'    	=> $IdSupervisor,
-				'IdCampana'    		=> $IdCampana,
-				'PercRecupero'    	=> $PercRecupero
-				// 'PercRecupero'    	=> $profile
+				'IdSupervisor'			=> $IdSupervisor,
+				'Supervisor'			=> $Supervisor
+				// 'lastname'  	=> $lastname,
+				// 'birthday'    	=> $birthday,
+				// 'email'    		=> $email,
+				// 'job'    		=> $job,
+				// 'profile'    	=> $profile
 			);
 					
-			$response = $this->Crud_model->updateData('plt_assign', 'id', $id, $data);
+			$response = $this->Crud_model->updateData('plt_supervisor', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			
@@ -174,7 +175,7 @@ public function getAssign()
 		}
 	}
 	
-	function assign_delete()
+	function supervisor_delete()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -189,13 +190,13 @@ public function getAssign()
 				'id' => $id
 			);
 					
-			$response = $this->Crud_model->deleteData('plt_assign', 'id', $id);
+			$response = $this->Crud_model->deleteData('plt_supervisor', 'id', $id);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
 			{
 				$response = array(
-					'message' => 'Asignación eliminada.',
+					'message' => 'Supervisor eliminado.',
 					'type'    => 'success'
 				);
 			}
@@ -222,7 +223,7 @@ public function getAssign()
 		}
 	}
 	
-	function assign_reset_psw()
+	function supervisor_reset_psw()
 	{
 		$is_ajax = $this->input->is_ajax_request();
 		
@@ -238,7 +239,7 @@ public function getAssign()
 				'password' 	=> $psw
 			);
 		
-			$response = $this->Crud_model->updateData('plt_assign', 'id', $id, $data);
+			$response = $this->Crud_model->updateData('plt_supervisor', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
@@ -271,7 +272,7 @@ public function getAssign()
 		}
 	}
 	
-	function assign_existe()
+	function supervisor_existe()
 	{		
 		$type = $this->input->get('type');
 		
@@ -289,7 +290,7 @@ public function getAssign()
 			$field => $id
 		);
 	
-		$response = $this->Crud_model->countData('plt_assign', $field, $id);
+		$response = $this->Crud_model->countData('plt_supervisor', $field, $id);
 
 		if($response == 0){
 			$existe = FALSE;

@@ -28,6 +28,10 @@
           <ul class="treeview-menu">
             <li><a href="Users"><i class="fa fa-user"></i> Usuarios</a></li>
             <li><a href="Assign"><i class="fa fa-rocket"></i> Asignaciones</a></li>
+            <li><a href="Campaign"><i class="fa fa-rocket"></i> Campañas</a></li>
+            <li><a href="Supervisor"><i class="fa fa-rocket"></i> Supervisores</a></li>
+            <li><a href="Operations"><i class="fa fa-rocket"></i> Jefes de Operaciones</a></li>
+            
           </ul>
         </li>
 			';

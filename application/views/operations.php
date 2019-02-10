@@ -8,7 +8,7 @@
         <span class="sr-only">Botón Navegador</span>
       </a>
 
-      <div id="assign-nav-bar" class="navbar-custom-menu">
+      <div id="operations-nav-bar" class="navbar-custom-menu">
       </div>
     </nav>
   </header>
@@ -17,7 +17,7 @@
 
     <section class="sidebar">
 
-      <!-- Sidebar user panel (optional) -->
+      <!-- Sidebar operations panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
           <img src="assets/img/pp.jpg" class="img-circle" alt="User Image">
@@ -53,7 +53,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Asignaciones
+        Jefes de Operaciones
         <small>Panel de control</small>
       </h1>
       <ol class="breadcrumb">
@@ -64,7 +64,7 @@
 
     <section class="content">
       <div class="row">
-        <section id="assign_list" class="col-lg-12">
+        <section id="operations_list" class="col-lg-12">
 		
         </section>
       </div>
@@ -111,72 +111,15 @@
   </aside>
   <div class="control-sidebar-bg"></div>
 </div>
+
+
 <script>
-
-function printAssignList(url){
-	$.ajax({
-		url: url,
-		type: 'GET',
-		dataType: 'json',
-		cache: false,
-		async: true,
-		success: function(data){
-	    var html = `<div class="box box-primary">
-				<div class="box-header with-border">
-				  <h3 class="box-title">Tabla de Asignaciones</h3>
-				</div>
-				<div class="table-responsive">
-				  <table class="table table-bordered">
-					<tbody>
-					<tr>
-					  <th>Nombre</th>
-					  <th>Apellido</th>
-					  <th>Usuario</th>
-            <th>PercRecupero</th>
-            <th>Campana</th>
-            <th>Supervisor</th>
-            <th>Jefe de Operaciones</th>
-					  <th style="width: 10px" colspan="2"></th>
-					</tr>`;
-				for(let i=0; i<data.message.length; i++){
-
-            var Nombre = data.message[i].Nombre;
-            var Apellido = data.message[i].Apellido;
-             var Usuario = data.message[i].Usuario;
-            var PercRecupero = data.message[i].PercRecupero;
-            var Campana = data.message[i].Campana;
-            var Supervisor = data.message[i].Supervisor;
-            var JefeOp = data.message[i].JefeOp;
-           
-      
-            html += '<tr><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+Usuario+'</td><td>'+PercRecupero+'</td><td>'+Campana+'</td><td>'+Supervisor+'</td><td>'+JefeOp+'</td><td><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_assign_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td><td><a href="#" class="text-red" data-toggle="modal" data-target="#modal_assign_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td></tr>';
-        }	
-			
-			html += '</tbody></table>';
-			
-      $("#assign_list").append(html);
-  
-      html = null;
-			
-			$("#content_overlay").LoadingOverlay("hide")
-		},
-		error: function (xhr, ajaxOptions, thrownError) {
-			$.notify(xhr.status+': '+thrownError, {
-				className : "warn",
-				position  : "right bottom"
-			});
-			$("#content_overlay").LoadingOverlay("hide");
-		}
-	});	
-}
-
-$(document).ready(function (){
 	$("#content_overlay").LoadingOverlay("show");
 	printFooter();
 	printRightAside();
-	printAssignNavBar();
-  printAssignList('<?=base_url();?>Assign/getAssign');
-});
+	printOperationsNavBar();
+	printOperationsList();
+	$("#content_overlay").LoadingOverlay("hide");
 </script>
 
 </body>

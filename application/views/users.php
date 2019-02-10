@@ -113,12 +113,66 @@
 </div>
 
 <script>
+
+
+function printUsersList(url){
+	$.ajax({
+		url: url,
+		type: 'GET',
+		dataType: 'json',
+		cache: false,
+		async: true,
+		success: function(data){
+	    var html = `<div class="box box-primary">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Tabla de Usuarios</h3>
+				</div>
+				<div class="table-responsive">
+				  <table class="table table-bordered">
+					<tbody>
+					<tr>
+					  <th>Usuario</th>
+					  <th>Nombre</th>
+					  <th>Apellido</th>
+					  <th>Correo</th>
+					  <th>Cargo</th>
+					  <th style="width: 10px" colspan="3"></th>
+					</tr>`;
+				for(let i=0; i<data.message.length; i++){
+
+            var Usuario = data.message[i].Usuario;
+            var Nombre = data.message[i].Nombre;
+            var Apellido = data.message[i].Apellido;
+            var Correo = data.message[i].Correo;
+            var Cargo = data.message[i].Cargo;
+      
+            html += '<tr><td>'+Usuario+'</td><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+Correo+'</td><td>'+Cargo+'</td><td><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_user_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td><td><a href="#" class="text-orange" data-toggle="modal" data-target="#modal_user_refresh"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td><td><a href="#" class="text-red" data-toggle="modal" data-target="#modal_user_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td></tr>';
+        }	
+			
+			html += '</tbody></table>';
+			
+      $("#users_list").append(html);
+  
+      html = null;
+			
+			$("#content_overlay").LoadingOverlay("hide")
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			$.notify(xhr.status+': '+thrownError, {
+				className : "warn",
+				position  : "right bottom"
+			});
+			$("#content_overlay").LoadingOverlay("hide");
+		}
+	});				
+}
+$(document).ready(function (){
 	$("#content_overlay").LoadingOverlay("show");
 	printFooter();
 	printRightAside();
 	printUserNavBar();
-	printUsersList();
-	$("#content_overlay").LoadingOverlay("hide");
+	printUsersList('<?=base_url();?>Users/getUsers');
+})
 </script>
 
 </body>

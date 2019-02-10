@@ -4,6 +4,7 @@ class Users extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Crud_model');	
+		$this->load->model('Users_model');	
 		$this->load->helper('url');
 		
 		// 		$this->checkPermisos("Users", "3");
@@ -55,7 +56,7 @@ class Users extends CI_Controller {
 				'user'    		=> $user
 			);
 					
-			$response = $this->Crud_model->insertData('usuarios', $data);
+			$response = $this->Crud_model->insertData('plt_usuarios', $data);
 			
 			if(!$response){ $status = FALSE; }
 			
@@ -88,6 +89,29 @@ class Users extends CI_Controller {
 			die;
 		}
 	}
+
+	public function getUsers()
+	{
+	$data = $this->Users_model->getUsers();
+		
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+		
+		echo json_encode($response);
+		die;
+	}
 	
 	function user_edit()
 	{
@@ -115,7 +139,7 @@ class Users extends CI_Controller {
 				'profile'    	=> $profile
 			);
 					
-			$response = $this->Crud_model->updateData('usuarios', 'id', $id, $data);
+			$response = $this->Crud_model->updateData('plt_usuarios', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			
@@ -164,7 +188,7 @@ class Users extends CI_Controller {
 				'id' => $id
 			);
 					
-			$response = $this->Crud_model->deleteData('usuarios', 'id', $id);
+			$response = $this->Crud_model->deleteData('plt_usuarios', 'id', $id);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
@@ -213,7 +237,7 @@ class Users extends CI_Controller {
 				'password' 	=> $psw
 			);
 		
-			$response = $this->Crud_model->updateData('usuarios', 'id', $id, $data);
+			$response = $this->Crud_model->updateData('plt_usuarios', 'id', $id, $data);
 			
 			if(!$response){ $status = FALSE; }
 			if($status)
@@ -264,7 +288,7 @@ class Users extends CI_Controller {
 			$field => $id
 		);
 	
-		$response = $this->Crud_model->countData('usuarios', $field, $id);
+		$response = $this->Crud_model->countData('plt_usuarios', $field, $id);
 
 		if($response == 0){
 			$existe = FALSE;
