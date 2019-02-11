@@ -20,7 +20,7 @@
 												<div class="col-xs-6">
 													<div class="input-group">
 														<span class="input-group-addon"><i class="fa fa-user"></i></span>
-														<input type="int" class="form-control" placeholder="Id Agente">
+														<input id="agente_nombre" type="int" class="form-control" placeholder="Agente">
 													</div>					
 												</div>
 												<div class="col-xs-6">

@@ -53,6 +53,29 @@ public function getAssign()
 		die;
 	}
 
+	public function getAssignById()
+	{
+	$Id		= $this->input->get('Id');
+	$data = $this->Crud_model->getDataResultById('plt_asignaciones', 'idAgente', $Id);
+		
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+		
+		echo json_encode($response);
+		die;
+	}
 
 	function assign_add()
 	{

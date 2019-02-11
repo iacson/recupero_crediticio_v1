@@ -146,10 +146,10 @@ function printUsersList(url){
             var Correo = data.message[i].Correo;
             var Cargo = data.message[i].Cargo;
       
-            html += '<tr><td>'+Usuario+'</td><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+Correo+'</td><td>'+Cargo+'</td><td><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_user_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td><td><a href="#" class="text-orange" data-toggle="modal" data-target="#modal_user_refresh"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td><td><a href="#" class="text-red" data-toggle="modal" data-target="#modal_user_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td></tr>';
+            html += '<tr><td>'+Usuario+'</td><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+Correo+'</td><td>'+Cargo+'</td><td align="center"><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_user_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td><td align="center"><a href="#" class="text-orange" data-toggle="modal" data-target="#modal_user_refresh"><i class="fa fa-refresh" title="Reiniciar contraseña"></i></a></td><td align="center"><a href="#" class="text-red" data-toggle="modal" data-target="#modal_user_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td></tr>';
         }	
 			
-			html += '</tbody></table>';
+      html += '</tbody></table>';
 			
       $("#users_list").append(html);
   

@@ -140,6 +140,7 @@ function printAssignList(url){
 					</tr>`;
 				for(let i=0; i<data.message.length; i++){
 
+            var Id = data.message[i].Id;
             var Nombre = data.message[i].Nombre;
             var Apellido = data.message[i].Apellido;
              var Usuario = data.message[i].Usuario;
@@ -149,7 +150,7 @@ function printAssignList(url){
             var JefeOp = data.message[i].JefeOp;
            
       
-            html += '<tr><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+Usuario+'</td><td>'+PercRecupero+'</td><td>'+Campana+'</td><td>'+Supervisor+'</td><td>'+JefeOp+'</td><td><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_assign_edit"><i class="fa fa-pencil"  title="Editar"></i></a></td><td><a href="#" class="text-red" data-toggle="modal" data-target="#modal_assign_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td></tr>';
+            html += '<tr><td>'+Nombre+'</td><td>'+Apellido+'</td><td>'+Usuario+'</td><td>'+PercRecupero+'</td><td>'+Campana+'</td><td>'+Supervisor+'</td><td>'+JefeOp+'</td><td align="center"><a href="#" class="text-light-blue" data-toggle="modal" data-target="#modal_assign_edit"><i class="fa fa-pencil"  onclick="getAssignById('+Id+')" title="Editar"></i></a></td><td align="center"><a href="#" class="text-red" data-toggle="modal" data-target="#modal_assign_delete"><i class="fa fa-trash" title="Eliminar"></i></a></td></tr>';
         }	
 			
 			html += '</tbody></table>';
@@ -158,6 +159,38 @@ function printAssignList(url){
   
       html = null;
 			
+			$("#content_overlay").LoadingOverlay("hide")
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			$.notify(xhr.status+': '+thrownError, {
+				className : "warn",
+				position  : "right bottom"
+			});
+			$("#content_overlay").LoadingOverlay("hide");
+		}
+	});	
+}
+
+
+function getAssignById(Id){
+	$.ajax({
+    url: '<?=base_url();?>Assign/getAssignById',
+		type: 'GET',
+    dataType: 'json',
+    data: {"Id": Id},
+		cache: false,
+		async: true,
+		success: function(data){     
+      var ID = data.message[0].IdAgente;
+      // var Nombre = data.message[i].Nombre;
+      // var Apellido = data.message[i].Apellido;
+      // var Usuario = data.message[i].Usuario;
+      // var PercRecupero = data.message[i].PercRecupero;
+      // var Campana = data.message[i].Campana;
+      // var Supervisor = data.message[i].Supervisor;
+      // var JefeOp = data.message[i].JefeOp;
+    $("#agente_nombre").val(ID);
+  			
 			$("#content_overlay").LoadingOverlay("hide")
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
