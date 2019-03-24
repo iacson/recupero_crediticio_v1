@@ -64,6 +64,25 @@
 	<!-- PRELOADER -->
 		<div id="DASHBOARD_KPI" class="row">
 		</div>
+		 <div class="row">
+			<div class="col-md-12">
+			  <div class="box box-success">
+				<div class="box-header with-border">
+				  <h3 class="box-title">Evolución Llamadas</h3>
+				</div>
+				<div class="box-body">
+				  <div class="chart">
+					<canvas id="barChart" style="height:230px"></canvas>
+				  </div>
+				</div>
+				<!-- /.box-body -->
+			  </div>
+			  <!-- /.box -->
+
+			</div>
+        <!-- /.col (RIGHT) -->
+      </div>
+      <!-- /.row -->
     </section>
   </div>
 
@@ -99,6 +118,8 @@
   </aside>
   <div class="control-sidebar-bg"></div>
 </div>
+
+<script src="assets/bower_components/chart.js/Chart.js"></script>
 <script>
 	function printDashboardKPI(url){
 		$.ajax({
@@ -108,15 +129,48 @@
 			cache: false,
 			async: true,
 			success: function(data){
-				for(let i=0; i<data.message.length; i++){
-					var vKpi = data.message[i].KPI;
-					var vName = data.message[i].NAME;
-					var vValue = data.message[i].VALUE;
-					var vIcon = data.message[i].ICON;
-					var vColor = data.message[i].COLOR;
+				
+				/*
+				
+				
+				Popup`,
+				Salientes,
+				Entrantes,
+				Entrantes + Salientes AS LlamadasTotales
+				
+				*/
+				
+				
+				var Popup = data.message.Popup;
+				var Salientes = data.message.Salientes;
+				var Entrantes = data.message.Entrantes;
+				var LlamadasTotales = data.message.LlamadasTotales;
 					
-					$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box '+vColor+'"><div id="'+vKpi+'" class="inner"><h3>'+vValue+'</h3><p>'+vName+'</p></div><div class="icon"><i class="fa '+vIcon+'"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
-				}
+				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-blue"><div id="POP_UP" class="inner"><h3>'+Popup+'</h3><p>Pop Up</p></div><div class="icon"><i class="fa fa-phone-square"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="SALIENTES" class="inner"><h3>'+Salientes+'</h3><p>Salientes</p></div><div class="icon"><i class="fa fa-phone-square"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-aqua"><div id="ENTRANTES" class="inner"><h3>'+Entrantes+'</h3><p>Entrantes</p></div><div class="icon"><i class="fa fa-phone-square"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+				$("#DASHBOARD_KPI").append('<div class="col-lg-3 col-xs-6"><div class="small-box bg-red"><div id="LLAMADASTOTALES" class="inner"><h3>'+LlamadasTotales+'</h3><p>Total Llamadas</p></div><div class="icon"><i class="fa fa-phone-square"></i></div><a href="#" class="small-box-footer"><i></i></a></div></div>');
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+				$.notify(xhr.status+': '+thrownError, {
+					className : "warn",
+					position  : "right bottom"
+				});
+				$("#overlay").LoadingOverlay("hide");
+			}
+		});
+	}
+	
+	function printBarChart(url){
+		$.ajax({
+			url: url,
+			type: 'GET',
+			dataType: 'json',
+			cache: false,
+			async: true,
+			success: function(data){
+				barChart.data.datasets[0].data[1] = 10; 
+				barChart.update(); 	
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 				$.notify(xhr.status+': '+thrownError, {
@@ -131,11 +185,68 @@
 	$(document).ready(function (){
 		$("#overlay").LoadingOverlay("show");
 		printFooter();
-		printDashboardKPI('<?=base_url();?>Dashboard/getKPI');
+		printDashboardKPI('<?=base_url();?>Performance/getKPI');
+		printBarChart('<?=base_url();?>Performance/getTotalLlamadas');
 		printRightAside();
 		printUserNavBar();
+		
 		$("#overlay").LoadingOverlay("hide");	
 	})
+	
+	$(function () {
+		
+		var ChartData = {
+		  labels  : ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'],
+		  datasets: [
+			{
+			  label               : 'Llamadas',
+			  fillColor           : 'rgba(210, 30, 30, 1)',
+			  strokeColor         : 'rgba(210, 30, 30, 1)',
+			  pointColor          : 'rgba(210, 214, 222, 1)',
+			  pointStrokeColor    : '#c1c7d1',
+			  pointHighlightFill  : '#fff',
+			  pointHighlightStroke: 'rgba(220,220,220,1)',
+			  data                : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+			}
+		  ]
+		}
+		//-------------
+		//- BAR CHART -
+		//-------------
+		var barChartCanvas                   = $('#barChart').get(0).getContext('2d')
+		var barChart                         = new Chart(barChartCanvas)
+		var barChartData                     = ChartData
+		var barChartOptions                  = {
+		  //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+		  scaleBeginAtZero        : true,
+		  //Boolean - Whether grid lines are shown across the chart
+		  scaleShowGridLines      : true,
+		  //String - Colour of the grid lines
+		  scaleGridLineColor      : 'rgba(0,0,0,.05)',
+		  //Number - Width of the grid lines
+		  scaleGridLineWidth      : 1,
+		  //Boolean - Whether to show horizontal lines (except X axis)
+		  scaleShowHorizontalLines: true,
+		  //Boolean - Whether to show vertical lines (except Y axis)
+		  scaleShowVerticalLines  : true,
+		  //Boolean - If there is a stroke on each bar
+		  barShowStroke           : true,
+		  //Number - Pixel width of the bar stroke
+		  barStrokeWidth          : 2,
+		  //Number - Spacing between each of the X value sets
+		  barValueSpacing         : 5,
+		  //Number - Spacing between data sets within X values
+		  barDatasetSpacing       : 1,
+		  //String - A legend template
+		  legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
+		  //Boolean - whether to make the chart responsive
+		  responsive              : true,
+		  maintainAspectRatio     : true
+		}
+
+		barChartOptions.datasetFill = false
+		barChart.Bar(barChartData, barChartOptions)
+  })
 </script>
 
 

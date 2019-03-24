@@ -233,8 +233,12 @@ class Performance_model extends CI_Model {
 	}
 	
 	
-	function getKPI()
+	function getKPI($fecha_filtro)
 	{
+		if($fecha_filtro == null){
+				$fecha_filtro = '2019-02-01';
+		}
+		
 		$sql = "
 			SELECT `Popup`,
 				Salientes,
@@ -245,21 +249,44 @@ class Performance_model extends CI_Model {
 					SELECT
 						COUNT(Id) AS `Popup` 
 					FROM telepromdb.logestados 
-				WHERE IdEstado IN (120, 150) AND DATE(FechaHoraInicio) = '2019-02-01') AS A
+				WHERE IdEstado IN (120, 150) AND DATE(FechaHoraInicio) = '".$fecha_filtro."') AS A
 				CROSS JOIN (
 					SELECT 
 						COUNT(Id) AS `Salientes`
 					FROM telepromdb.logestados 
-					WHERE IdEstado IN (120, 130, 140) AND DATE(FechaHoraInicio) = '2019-02-01') AS B
+					WHERE IdEstado IN (120, 130, 140) AND DATE(FechaHoraInicio) = '".$fecha_filtro."') AS B
 				CROSS JOIN (
 					SELECT 
 						COUNT(Id) AS `Entrantes`
 					FROM telepromdb.logestados 
-					WHERE IdEstado IN (150, 160, 170) AND DATE(FechaHoraInicio) = '2019-02-01') AS C
+					WHERE IdEstado IN (150, 160, 170) AND DATE(FechaHoraInicio) = '".$fecha_filtro."') AS C
 			) AS D
 		";
 		
-		return $query = $this->db->query($sql)->result_array();
+		return $query = $this->db->query($sql)->row_array();
+	}
+	
+	function getTotalLlamadas($fecha_filtro)
+	{
+		if($fecha_filtro == null){
+				$fecha_filtro = '2019-02-01';
+		}
+		
+		$sql = "
+			SELECT 
+				LlamadasTotales,
+         	Hora
+			FROM (
+				SELECT
+					COUNT(Id) AS `LlamadasTotales`,
+					HOUR(FechaHoraInicio) as Hora
+				FROM telepromdb.logestados 
+				WHERE IdEstado IN (120, 130, 140, 150, 160, 170) AND DATE(FechaHoraInicio) = '".$fecha_filtro."'
+				GROUP BY HOUR(FechaHoraInicio)
+         ) AS A
+		";
+		
+		return $query = $this->db->query($sql)->row_array();
 	}
 	
 	function getAssign()

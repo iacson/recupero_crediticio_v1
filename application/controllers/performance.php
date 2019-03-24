@@ -48,7 +48,9 @@ class Performance extends CI_Controller {
 	
 	public function getKPI()
 	{
-	$data = $this->Performance_model->getKPI();
+	
+	$fecha_filtro = '2019-02-01';
+	$data = $this->Performance_model->getKPI($fecha_filtro);
 		
 		if(count($data) > 0)
 		{
@@ -69,7 +71,29 @@ class Performance extends CI_Controller {
 		die;
 	}
 	
-
+	public function getTotalLlamadas()
+	{
+	$fecha_filtro = '2019-02-01';
+	$data = $this->Performance_model->getTotalLlamadas($fecha_filtro);
+		
+		if(count($data) > 0)
+		{
+			$response = array(
+				'message' => $data,
+				'type'    => 'success'
+			);
+		}
+		else
+		{
+			$response = array(
+				'message' => 'Error, verifique los datos.',
+				'type'    => 'warn'
+			);
+		}
+		
+		echo json_encode($response);
+		die;
+	}
 
 	public function export_performance_xls(){
 		

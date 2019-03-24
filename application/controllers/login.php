@@ -4,7 +4,9 @@ class Login extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Crud_model');	
+		$this->load->model('Login_model');	
 		$this->load->helper('url');
+		$this->load->library('session');
 	}
 
 	function index(){
@@ -16,12 +18,12 @@ class Login extends CI_Controller {
 		$this->load->view('login');
 	}
 	
-	public function SignIn(){
+	public function Login(){
 		
-		$email = 		$this->input->post('user');
+		$user = 		$this->input->post('user');
 		$password = 	$this->input->post('password');
 		
-		echo $email." - ".$password;
+		$result = $this->Login_model->IsLogin($user, $password);
 		
 		echo 'probando';
 		
