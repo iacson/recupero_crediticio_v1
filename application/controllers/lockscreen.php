@@ -14,6 +14,8 @@ class Lockscreen extends CI_Controller {
 		);
 
 		$this->load->view('lockscreen');
-	}
+}}
+
+// dklashdkjashd
 }
 ?>
