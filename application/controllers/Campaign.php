@@ -27,7 +27,8 @@ class Campaign extends CI_Controller {
 		$this->load->view('modal/modal_campaign_edit', $data);
 		$this->load->view('modal/modal_campaign_add', $data);
 	}
-	
+	// tuviejaentanga
+
 	function campaign_add()
 	{
 		$is_ajax = $this->input->is_ajax_request();
